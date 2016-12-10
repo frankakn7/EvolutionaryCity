@@ -1,11 +1,11 @@
 var population = [];
 var populationCount = 1;
 
-var intrests = { math, science, IT, art };
+var interests = ['math', 'science', 'IT', 'art' ];
 
 function person(id,age,income,job,gender,interests,education,
 				medicalState,spendingType,IQ,happiness,
-				relationship) {
+				relationship,workplace) {
 				
     this.id = id;
 	this.age = age;
@@ -19,6 +19,7 @@ function person(id,age,income,job,gender,interests,education,
 	this.IQ = IQ;
 	this.happiness = happiness;
 	this.relationship = relationship;
+	this.workplace = workplace;
 	
 	//this.inheritance = inheritance;
 	
@@ -67,6 +68,7 @@ function bornBaby(){
 	population[populationCount].IQ = Math.round(Math.random()*30)+90;
 	population[populationCount].happiness = 100;
 	population[populationCount].relationship = false;
+	population[populationCount].workplace = 'None';
 	
 	populationCount ++;
 }

@@ -9,8 +9,8 @@ function building(type,size,price,x,y){
 	this.y = y;
 }
 
-function residence(size,price,x,y,maxInhabitants,appartments){
-	var self = building();
+function residence(size,price,x,y,maxInhabitants,appartements){
+	var self = new building();
 	self.type = 'residence';
 	self.size = size;
 	self.price = price;
@@ -23,7 +23,7 @@ function residence(size,price,x,y,maxInhabitants,appartments){
 }
 
 function office(size,price,x,y,workspaces,company){
-	var self = building();
+	var self = new building();
 	self.type = 'office';
 	self.size = size;
 	self.price = price;
@@ -36,7 +36,7 @@ function office(size,price,x,y,workspaces,company){
 }
 
 function shop(sie,price,x,y,workspaces,company,productType,productPrice){
-	var self = building();
+	var self = new building();
 	self.type = 'shop';
 	self.size = size;
 	self.price = price;
@@ -52,7 +52,7 @@ function shop(sie,price,x,y,workspaces,company,productType,productPrice){
 }
 
 function factory(size,price,x,y,workspaces,company,productType,productionRate){
-	var self = building();
+	var self = new building();
 	self.type = 'factory';
 	slef.size = size;
 	self.price = price;
@@ -66,3 +66,16 @@ function factory(size,price,x,y,workspaces,company,productType,productionRate){
 	self.customers = [];					// which shops
 	self.workers = [];
 }
+
+function buildResidence(size,price,x,y,appartments){
+	houses[houseCount] = new residence();
+	houses[houseCount].size = size;
+	houses[houseCount].price = price;
+	houses[houseCount].x = x;
+	houses[houseCount].y = y;
+	houses[houseCount].appartments = appartments;
+	
+	houseCount ++;
+}
+
+buildResidence(500,20,100,100,50);
