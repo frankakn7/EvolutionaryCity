@@ -1,7 +1,8 @@
 var houses = [];
 var houseCount = 1;
 
-function building(size,price,x,y){
+function building(id,size,price,x,y){
+	this.id = id;
 	this.size = size;
 	this.price = price;
 	this.x = x;
@@ -13,7 +14,7 @@ function building(size,price,x,y){
 	}
 }
 
-function residence(size,price,x,y,appartements){
+function residence(id,size,price,x,y,appartements){
 	this.type = 'residence';
 	this.inhabitants = [];
 	this.appartements = appartements;
@@ -21,7 +22,7 @@ function residence(size,price,x,y,appartements){
 }
 residence.prototype = new building();
 
-function office(size,price,x,y,workspaces,company){
+function office(id,size,price,x,y,workspaces,company){
 	this.type = 'office';
 	this.workspaces = workspaces;
 	this.company = company;
@@ -29,7 +30,7 @@ function office(size,price,x,y,workspaces,company){
 }
 office.prototype = new building();
 
-function shop(sie,price,x,y,workspaces,company,productType,productPrice){
+function shop(id,size,price,x,y,workspaces,company,productType,productPrice){
 	this.type = 'shop';
 	this.workspaces = workspaces;
 	this.company = company;
@@ -40,7 +41,7 @@ function shop(sie,price,x,y,workspaces,company,productType,productPrice){
 }
 shop.prototype = new building();
 
-function factory(size,price,x,y,workspaces,company,productType,productionRate){
+function factory(id,size,price,x,y,workspaces,company,productType,productionRate){
 	this.type = 'factory';
 	this.workspaces = workspaces;
 	this.company = company;
@@ -54,6 +55,7 @@ factory.prototype = new building();
 
 function buildResidence(size,price,x,y,appartments){
 	houses[houseCount] = new residence();
+	houses[houseCount].id = houseCount;
 	houses[houseCount].size = size;
 	houses[houseCount].price = price;
 	houses[houseCount].x = x;
@@ -65,6 +67,7 @@ function buildResidence(size,price,x,y,appartments){
 
 function buildOffice(size,price,x,y,workspaces,company){
 	houses[houseCount] = new office();
+	houses[houseCount].id = houseCount;
 	houses[houseCount].size = size;
 	houses[houseCount].price = price;
 	houses[houseCount].x = x;
