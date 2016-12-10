@@ -1,10 +1,9 @@
 var houses = [];
 var houseCount = 1;
 
-function building(type,size,price,x,y){
-	this.type = type;
+function building(size,price,x,y){
 	this.size = size;
-	this.price = price;				// per m^2
+	this.price = price;
 	this.x = x;
 	this.y = y;
 	
@@ -14,65 +13,44 @@ function building(type,size,price,x,y){
 	}
 }
 
-function residence(size,price,x,y,maxInhabitants,appartements){
-	var self = new building();
-	self.type = 'residence';
-	self.size = size;
-	self.price = price;
-	self.x = x;
-	self.y = y;
-	
-	self.draw();
-	
-	self.inhabitants = [];
-	self.appartements = appartements;
+function residence(size,price,x,y,appartements){
+	this.type = 'residence';
+	this.inhabitants = [];
+	this.appartements = appartements;
 	
 }
+residence.prototype = new building();
 
 function office(size,price,x,y,workspaces,company){
-	var self = new building();
-	self.type = 'office';
-	self.size = size;
-	self.price = price;
-	self.x = x;
-	self.y = y;
-	
-	self.workspaces = workspaces;
-	self.company = company;
-	self.workers = [];
+	this.type = 'office';
+	this.workspaces = workspaces;
+	this.company = company;
+	this.workers = [];
 }
+office.prototype = new building();
 
 function shop(sie,price,x,y,workspaces,company,productType,productPrice){
-	var self = new building();
-	self.type = 'shop';
-	self.size = size;
-	self.price = price;
-	self.x = x;
-	self.y = y;
-	
-	self.workspaces = workspaces;
-	self.company = company;
-	self.productType = productType;
-	self.customers = [];				// per month
-	self.productPrice = productPrice;
-	self.workers = [];
+	this.type = 'shop';
+	this.workspaces = workspaces;
+	this.company = company;
+	this.productType = productType;
+	this.customers = [];				// per month
+	this.productPrice = productPrice;
+	this.workers = [];
 }
+shop.prototype = new building();
 
 function factory(size,price,x,y,workspaces,company,productType,productionRate){
-	var self = new building();
-	self.type = 'factory';
-	slef.size = size;
-	self.price = price;
-	self.x = x;
-	self.y = y;
-	
-	self.workspaces = workspaces;
-	self.company = company;
-	self.productType = productType;
-	self.productionRate = productionRate; 		// per month
-	self.customers = [];					// which shops
-	self.workers = [];
+	this.type = 'factory';
+	this.workspaces = workspaces;
+	this.company = company;
+	this.productType = productType;
+	this.productionRate = productionRate; 		// per month
+	this.customers = [];					// which shops
+	this.workers = [];
 }
+factory.prototype = new building();
+
 
 function buildResidence(size,price,x,y,appartments){
 	houses[houseCount] = new residence();
@@ -85,7 +63,20 @@ function buildResidence(size,price,x,y,appartments){
 	houseCount ++;
 }
 
-buildResidence(500,20,100,100,50);
+function buildOffice(size,price,x,y,workspaces,company){
+	houses[houseCount] = new office();
+	houses[houseCount].size = size;
+	houses[houseCount].price = price;
+	houses[houseCount].x = x;
+	houses[houseCount].y = y;
+	houses[houseCount].workspaces = workspaces;
+	houses[houseCount].company = company;
+	
+	houseCount ++;
+}
+
+buildResidence(10,20,100,100,50);
+buildOffice(20,30,250,200,4,'Evil corp.');
 
 for(var i in houses){
 	houses[i].draw();
