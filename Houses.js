@@ -7,6 +7,11 @@ function building(type,size,price,x,y){
 	this.price = price;				// per m^2
 	this.x = x;
 	this.y = y;
+	
+	this.draw = function(){
+		context.clearRect(this.x,this.y,this.size,this.size);
+		context.fillRect(this.x,this.y,this.size,this.size);
+	}
 }
 
 function residence(size,price,x,y,maxInhabitants,appartements){
@@ -16,6 +21,8 @@ function residence(size,price,x,y,maxInhabitants,appartements){
 	self.price = price;
 	self.x = x;
 	self.y = y;
+	
+	self.draw();
 	
 	self.inhabitants = [];
 	self.appartements = appartements;
@@ -79,3 +86,7 @@ function buildResidence(size,price,x,y,appartments){
 }
 
 buildResidence(500,20,100,100,50);
+
+for(var i in houses){
+	houses[i].draw();
+}
