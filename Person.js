@@ -20,6 +20,8 @@ function person(id,age,income,job,gender,interests,education,
 	this.happiness = happiness;
 	this.relationship = relationship;
 	this.workplace = workplace;
+
+	var money = 0;
 	
 	//this.inheritance = inheritance;
 	
