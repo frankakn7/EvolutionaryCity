@@ -3,10 +3,11 @@ var populationCount = 1;
 
 var intrests = { math, science, IT, art };
 
-function person(age,income,job,gender,interests,education,
+function person(id,age,income,job,gender,interests,education,
 				medicalState,spendingType,IQ,happiness,
-				relationship){
-					
+				relationship) {
+				
+    this.id = id;
 	this.age = age;
 	this.income = income;
 	this.job = job;
