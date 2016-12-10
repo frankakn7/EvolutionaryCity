@@ -1,6 +1,8 @@
 var population = [];
 var populationCount = 1;
 
+var intrests = { math, science, IT, art };
+
 function person(age,income,job,gender,interests,education,
 				medicalState,spendingType,IQ,happiness,
 				relationship){
