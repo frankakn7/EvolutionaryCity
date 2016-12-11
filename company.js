@@ -10,6 +10,7 @@ function Company(id, type, ceo, hq) {
     };
 
     self.employees = [];
+    self.ownedBuildings = [];
 
     self.payment = function(){
         self.capital += self.income;
@@ -18,4 +19,3 @@ function Company(id, type, ceo, hq) {
         }
     }
 }
-
