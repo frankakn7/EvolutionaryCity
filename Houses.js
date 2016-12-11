@@ -79,7 +79,6 @@ function buildOffice(size,price,x,y,workspaces,company){
 }
 
 buildResidence(10,20,100,100,50);
-buildOffice(20,30,250,200,4,'Evil corp.');
 
 for(var i in houses){
 	houses[i].draw();

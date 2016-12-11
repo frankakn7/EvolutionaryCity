@@ -11,6 +11,7 @@ function Company(id, name, ceo, hq) {
     this.sallary = 0;
 
     this.employees = [];
+    this.ownedBuilding = [];
 
     this.payment = function(){
         this.capital += this.income;
@@ -29,4 +30,6 @@ function foundCompany(name,ceo,hq){
 	
 	companyCount ++;
 }
+buildOffice(20,30,250,200,4,'none');
 foundCompany('Evil corp.',population[1].id,houses[2].id);
+houses[2].company = companys[1].name;
