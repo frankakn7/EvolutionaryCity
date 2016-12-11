@@ -1,21 +1,32 @@
-function Company(id, type, ceo, hq) {
-    var self = {
-        id: id,
-        type: type,
-        ceo: ceo,
-        hq: hq,
-        income: 0,
-        capital: 0,
-        sallary: 0,
-    }
+var companys = [];
+var companyCount = 1;
 
-    self.employees = [];
+function Company(id, name, ceo, hq) {
+    this.id = id;
+    this.name = name;
+    this.ceo = ceo;
+    this.hq =  hq;
+    this.income = 0;
+    this.capital = 0;
+    this.sallary = 0;
 
-    self.payment = function(){
-        self.capital += self.income;
-        for (var i in self.employees) {
-            population[self.employees[i - 1]].money += self.sallary;
+    this.employees = [];
+
+    this.payment = function(){
+        this.capital += this.income;
+        for (var i in this.employees) {
+            population[this.employees[i]].money += this.sallary;
         }
     }
 }
 
+function foundCompany(name,ceo,hq){
+	companys[companyCount] = new Company();
+	companys[companyCount].id = companyCount;
+	companys[companyCount].name = name;
+	companys[companyCount].ceo = ceo;
+	companys[companyCount].hq = hq;
+	
+	companyCount ++;
+}
+foundCompany('Evil corp.',population[1].id,houses[2].id);
