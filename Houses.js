@@ -52,6 +52,7 @@ function factory(id,size,price,x,y,workspaces,company,productType,productionRate
 }
 factory.prototype = new building();
 
+// !Build Functions
 
 function buildResidence(size,price,x,y,appartments){
 	houses[houseCount] = new residence();
@@ -74,6 +75,36 @@ function buildOffice(size,price,x,y,workspaces,company){
 	houses[houseCount].y = y;
 	houses[houseCount].workspaces = workspaces;
 	houses[houseCount].company = company;
+	
+	houseCount ++;
+}
+
+function buildShop(size,price,x,y,workspaces,company,product,productPrice){
+	houses[houseCount] = new factory();
+	houses[houseCount].id = housecount;
+	houses[houseCount].size = size;
+	houses[houseCount].price = price;
+	houses[houseCount].x = x;
+	houses[houseCount].y = y;
+	houses[houseCount].workspaces = workspaces;
+	houses[houseCount].company = company;
+	houses[houseCount].productType = product;
+	houses[houseCount].productPrice = productPrice;
+	
+	houseCount ++;
+}
+
+function buildFactory(size,price,x,y,workspaces,company,product){
+	houses[houseCount] = new factory();
+	houses[houseCount].id = houseCount;
+	houses[houseCount].size = size;
+	houses[houseCount].price = price;
+	houses[houseCount].x = x;
+	houses[houseCount].y = y;
+	houses[houseCount].workspaces = workspaces;
+	houses[houseCount].company = company;
+	houses[houseCount].productType = product;
+	houses[houseCount].productionRate = 0;
 	
 	houseCount ++;
 }

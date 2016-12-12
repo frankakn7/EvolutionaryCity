@@ -2,6 +2,7 @@ var companys = [];
 var companyCount = 1;
 
 function Company(id, name, ceo, hq) {
+	var that = this;
     this.id = id;
     this.name = name;
     this.ceo = ceo;
@@ -23,7 +24,11 @@ function Company(id, name, ceo, hq) {
 */
 	this.build = { 
 		office: function(){
-			buildOffice(20,30,Math.round(Math.random()*500),Math.round(Math.random()*500),4,this.name);
+			buildOffice(20,30,Math.round(Math.random()*500),Math.round(Math.random()*500),4,that.name);
+			console.log(that);
+		},
+		factory: function(){
+			buildFactory(20,30,Math.round(Math.random()*500),Math.round(Math.random()*500),4,that.name,'none')
 		}
 	}
 }
