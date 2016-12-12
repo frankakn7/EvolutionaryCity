@@ -48,7 +48,11 @@ function person(id,age,income,job,gender,interests,education,
 		}else{
 			return 90 + Math.round(Math.random()*20);
 		}
-	} 
+	}
+	
+	this.foundCompany = function(){
+		foundCompany('Evil corp.',this.id);
+	}
 }
 
 function bornBaby(){
