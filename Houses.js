@@ -63,6 +63,8 @@ function buildResidence(size,price,x,y,appartments){
 	houses[houseCount].y = y;
 	houses[houseCount].appartments = appartments;
 	
+	needUpdate = true;
+	
 	houseCount ++;
 }
 
@@ -75,6 +77,8 @@ function buildOffice(size,price,x,y,workspaces,company){
 	houses[houseCount].y = y;
 	houses[houseCount].workspaces = workspaces;
 	houses[houseCount].company = company;
+	
+	needUpdate = true;
 	
 	houseCount ++;
 }
@@ -91,6 +95,8 @@ function buildShop(size,price,x,y,workspaces,company,product,productPrice){
 	houses[houseCount].productType = product;
 	houses[houseCount].productPrice = productPrice;
 	
+	needUpdate = true;
+	
 	houseCount ++;
 }
 
@@ -105,6 +111,8 @@ function buildFactory(size,price,x,y,workspaces,company,product){
 	houses[houseCount].company = company;
 	houses[houseCount].productType = product;
 	houses[houseCount].productionRate = 0;
+	
+	needUpdate = true;
 	
 	houseCount ++;
 }
