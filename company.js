@@ -13,12 +13,19 @@ function Company(id, name, ceo, hq) {
     this.employees = [];
     this.ownedBuilding = [];
 
+/*
     this.payment = function(){
         this.capital += this.income;
         for (var i in this.employees) {
             population[this.employees[i]].money += this.sallary;
         }
     }
+*/
+	this.build = { 
+		office: function(){
+			buildOffice(20,30,Math.round(Math.random()*500),Math.round(Math.random()*500),4,this.name);
+		}
+	}
 }
 
 function foundCompany(name,ceo,hq){

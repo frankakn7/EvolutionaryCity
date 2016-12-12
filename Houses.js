@@ -79,7 +79,3 @@ function buildOffice(size,price,x,y,workspaces,company){
 }
 
 buildResidence(10,20,100,100,50);
-
-for(var i in houses){
-	houses[i].draw();
-}
