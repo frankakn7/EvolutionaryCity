@@ -1,10 +1,16 @@
 // Update
+function updatCanvas() {
+    context.clearRect(0, 0, 500, 500);
+    for (var i in houses) {
+        houses[i].draw();
+    }
+    needUpdate = false;
 
-for(var i in houses){
-	houses[i].draw();
 }
 
 function update() {
+    if (needUpdate === true)
+        updatCanvas();
 
 }
 
