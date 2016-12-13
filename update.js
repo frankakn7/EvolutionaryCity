@@ -8,10 +8,15 @@ function updatCanvas() {
 
 }
 
+function newMonth() {
+
+}
+
 function update() {
     if (needUpdate === true)
         updatCanvas();
 
 }
 
+setInterval(newMonth, 1000 / 25);
 setInterval(update, 1000 / 25);
