@@ -35,22 +35,24 @@ function office(id,size,price,x,y,workspaces,company){
 }
 office.prototype = new building();
 
-function shop(id,size,price,x,y,workspaces,company,productType,productPrice){
+function shop(id,size,price,x,y,workspaces,company,productType,productPrice,customerPerWorker){
 	this.type = 'Shop';
 	this.workspaces = workspaces;
 	this.company = company;
 	this.productType = productType;
 	this.customers = [];				// per month
 	this.productPrice = productPrice;
+	this.customerPerWorker = customerPerWorker;
 	this.workers = [];
 }
 shop.prototype = new building();
 
-function factory(id,size,price,x,y,workspaces,company,productType,productionRate){
+function factory(id,size,price,x,y,workspaces,company,productType,productionPerWorker,productionRate){
 	this.type = 'Factory';
 	this.workspaces = workspaces;
 	this.company = company;
 	this.productType = productType;
+	this.productionPerWorker = productionPerWorker;
 	this.productionRate = productionRate; 		// per month
 	this.customers = [];					// which shops
 	this.workers = [];
@@ -63,7 +65,7 @@ function buildResidence(size,price,x,y,appartments){
 	houses[houseCount] = new residence();
 	houses[houseCount].id = houseCount;
 	houses[houseCount].size = size;
-	houses[houseCount].price = price;
+	houses[houseCount].price = price;					//of the building itself
 	houses[houseCount].x = x;
 	houses[houseCount].y = y;
 	houses[houseCount].appartments = appartments;
@@ -78,7 +80,7 @@ function buildOffice(size,price,x,y,workspaces,company){
 	houses[houseCount] = new office();
 	houses[houseCount].id = houseCount;
 	houses[houseCount].size = size;
-	houses[houseCount].price = price;
+	houses[houseCount].price = price;				//of the building itself
 	houses[houseCount].x = x;
 	houses[houseCount].y = y;
 	houses[houseCount].workspaces = workspaces;
@@ -95,7 +97,7 @@ function buildShop(size,price,x,y,workspaces,company,product,productPrice){
 	houses[houseCount] = new shop();
 	houses[houseCount].id = housecount;
 	houses[houseCount].size = size;
-	houses[houseCount].price = price;
+	houses[houseCount].price = price;				//of the building itself
 	houses[houseCount].x = x;
 	houses[houseCount].y = y;
 	houses[houseCount].workspaces = workspaces;
@@ -114,7 +116,7 @@ function buildFactory(size,price,x,y,workspaces,company,product){
 	houses[houseCount] = new factory();
 	houses[houseCount].id = houseCount;
 	houses[houseCount].size = size;
-	houses[houseCount].price = price;								//Production cost
+	houses[houseCount].price = price;								//of the building itself
 	houses[houseCount].x = x;
 	houses[houseCount].y = y;
 	houses[houseCount].workspaces = workspaces;
