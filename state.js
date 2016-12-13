@@ -1,4 +1,4 @@
 var state = {
-	money: 10000,
+	capital: 10000,
 	employees: 0,
 }

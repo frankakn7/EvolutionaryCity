@@ -8,7 +8,7 @@ function Company(id, name, ceo, hq) {
     this.ceo = ceo;
     this.hq =  hq;
     this.income = 0;
-    this.capital = 0;
+    this.capital = 20000;
     this.sallary = 0;
 
     this.employees = [];
@@ -39,10 +39,16 @@ function Company(id, name, ceo, hq) {
 			return;
 		}else{
 			var office = freeOffice[0];
-			removeFreeOffice();
-			this.ownedBuildings.push(office);
-			houses[office].company = this.id;
-			return office;
+			if(this.capital >= houses[office].price){
+				removeFreeOffice();
+				this.ownedBuildings.push(office);
+				houses[office].company = this.id;
+				this.capital -= houses[office].price;
+				state.capital += houses[office].price;
+				return office;
+			}else{
+				return;
+			}
 		}
 	}
 	
@@ -51,10 +57,16 @@ function Company(id, name, ceo, hq) {
 			return;
 		}else{
 			var shop = freeShop[0];
-			removeFreeShop();
-			this.ownedBuildings.push(shop);
-			houses[shop].company = this.id;
-			return shop;
+			if(this.capital >= houses[shop].price){
+				removeFreeShop();
+				this.ownedBuildings.push(shop);
+				houses[shop].company = this.id;
+				this.capital -= houses[shop].price;
+				state.capital += houses[shop].price;
+				return shop;
+			}else{
+				return;
+			}
 		}
 	}
 	
@@ -63,10 +75,14 @@ function Company(id, name, ceo, hq) {
 			return;
 		}else{
 			var factory = freeFactory[0];
-			removeFreeFactory();
-			this.ownedBuildings.push(factory);
-			houses[factory].company = this.id;
-			return factory;
+			if(this.capital >= houses[factory].price){
+				removeFreeFactory();
+				this.ownedBuildings.push(factory);
+				houses[factory].company = this.id;
+				this.capital -= houses[factory].price;
+				state.capital += houses[factory].price;
+				return factory;
+			}
 		}
 	}
 }
@@ -82,5 +98,5 @@ function foundCompany(name,ceo){
 }
 
 
-buildOffice(20,30,250,200,4,0);
+buildOffice(20,3000,250,200,4,0);
 //houses[2].company = companys[1].name;
