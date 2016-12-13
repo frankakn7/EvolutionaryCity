@@ -45,6 +45,30 @@ function Company(id, name, ceo, hq) {
 			return office;
 		}
 	}
+	
+	this.getShop = function(){
+		if(freeShop.length === 0){
+			return;
+		}else{
+			var shop = freeShop[0];
+			removeFreeShop();
+			this.ownedBuildings.push(shop);
+			houses[shop].company = this.id;
+			return shop;
+		}
+	}
+	
+	this.getFactory = function(){
+		if(freeFactory.length === 0){
+			return;
+		}else{
+			var factory = freeFactory[0];
+			removeFreeFactory();
+			this.ownedBuildings.push(factory);
+			houses[factory].company = this.id;
+			return factory;
+		}
+	}
 }
 
 function foundCompany(name,ceo){
