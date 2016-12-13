@@ -13,10 +13,14 @@ function building(id,size,price,x,y){
 		context.fillRect(this.x,this.y,this.size,this.size);
 	}
 	
+	this.free = function(){
+		window["free"+this.type].push(this.id);
+	}
+	
 }
 
 function residence(id,size,price,x,y,appartements){
-	this.type = 'residence';
+	this.type = 'Residence';
 	this.inhabitants = [];
 	this.appartements = appartements;
 	
@@ -24,7 +28,7 @@ function residence(id,size,price,x,y,appartements){
 residence.prototype = new building();
 
 function office(id,size,price,x,y,workspaces,company){
-	this.type = 'office';
+	this.type = 'Office';
 	this.workspaces = workspaces;
 	this.company = company;
 	this.workers = [];
@@ -32,7 +36,7 @@ function office(id,size,price,x,y,workspaces,company){
 office.prototype = new building();
 
 function shop(id,size,price,x,y,workspaces,company,productType,productPrice){
-	this.type = 'shop';
+	this.type = 'Shop';
 	this.workspaces = workspaces;
 	this.company = company;
 	this.productType = productType;
@@ -43,7 +47,7 @@ function shop(id,size,price,x,y,workspaces,company,productType,productPrice){
 shop.prototype = new building();
 
 function factory(id,size,price,x,y,workspaces,company,productType,productionRate){
-	this.type = 'factory';
+	this.type = 'Factory';
 	this.workspaces = workspaces;
 	this.company = company;
 	this.productType = productType;
@@ -64,6 +68,7 @@ function buildResidence(size,price,x,y,appartments){
 	houses[houseCount].y = y;
 	houses[houseCount].appartments = appartments;
 	
+	
 	needUpdate = true;
 	
 	houseCount ++;
@@ -78,6 +83,8 @@ function buildOffice(size,price,x,y,workspaces,company){
 	houses[houseCount].y = y;
 	houses[houseCount].workspaces = workspaces;
 	houses[houseCount].company = company;
+	
+	houses[houseCount].free();
 	
 	needUpdate = true;
 	
@@ -96,6 +103,8 @@ function buildShop(size,price,x,y,workspaces,company,product,productPrice){
 	houses[houseCount].productType = product;
 	houses[houseCount].productPrice = productPrice;
 	
+	houses[houseCount].free();
+	
 	needUpdate = true;
 	
 	houseCount ++;
@@ -105,7 +114,7 @@ function buildFactory(size,price,x,y,workspaces,company,product){
 	houses[houseCount] = new factory();
 	houses[houseCount].id = houseCount;
 	houses[houseCount].size = size;
-	houses[houseCount].price = price;
+	houses[houseCount].price = price;								//Production cost
 	houses[houseCount].x = x;
 	houses[houseCount].y = y;
 	houses[houseCount].workspaces = workspaces;
@@ -113,9 +122,12 @@ function buildFactory(size,price,x,y,workspaces,company,product){
 	houses[houseCount].productType = product;
 	houses[houseCount].productionRate = 0;
 	
+	houses[houseCount].free();
+	
 	needUpdate = true;
 	
 	houseCount ++;
 }
 
 buildResidence(10,20,100,100,50);
+buildFactory(10,20,340,340,50,0,'none');
