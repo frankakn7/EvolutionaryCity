@@ -3,7 +3,9 @@ var context = canvas.getContext("2d");
 
 var needUpdate = true;
 
-var freeOffice = [1,2];
+var freeOffice = [1, 2];
+var freeShop = [];
+var freeFactory = [];
 
 function removeFreeOffice(){
 	freeOffice.splice(0,1);
