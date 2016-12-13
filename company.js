@@ -12,7 +12,7 @@ function Company(id, name, ceo, hq) {
     this.sallary = 0;
 
     this.employees = [];
-    this.ownedBuilding = [];
+    this.ownedBuildings = [];
 
 /*
     this.payment = function(){
@@ -22,15 +22,17 @@ function Company(id, name, ceo, hq) {
         }
     }
 */
+/*
 	this.build = { 
 		office: function(){
-			buildOffice(20,30,Math.round(Math.random()*500),Math.round(Math.random()*500),4,that.name);
+			buildOffice(20,30,Math.round(Math.random()*500),Math.round(Math.random()*500),4,that.id);
 			console.log(that);
 		},
 		factory: function(){
-			buildFactory(20,30,Math.round(Math.random()*500),Math.round(Math.random()*500),4,that.name,'none')
+			buildFactory(20,30,Math.round(Math.random()*500),Math.round(Math.random()*500),4,that.id,'none')
 		}
 	}
+*/
 	
 	this.getOffice = function(){
 		if(freeOffice.length === 0){
@@ -38,6 +40,8 @@ function Company(id, name, ceo, hq) {
 		}else{
 			var office = freeOffice[0];
 			removeFreeOffice();
+			this.ownedBuildings.push(office);
+			houses[office].company = this.id;
 			return office;
 		}
 	}
@@ -54,5 +58,5 @@ function foundCompany(name,ceo){
 }
 
 
-buildOffice(20,30,250,200,4,'none');
+buildOffice(20,30,250,200,4,0);
 //houses[2].company = companys[1].name;

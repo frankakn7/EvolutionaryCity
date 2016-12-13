@@ -12,6 +12,7 @@ function building(id,size,price,x,y){
 		context.clearRect(this.x,this.y,this.size,this.size);
 		context.fillRect(this.x,this.y,this.size,this.size);
 	}
+	
 }
 
 function residence(id,size,price,x,y,appartements){
@@ -84,7 +85,7 @@ function buildOffice(size,price,x,y,workspaces,company){
 }
 
 function buildShop(size,price,x,y,workspaces,company,product,productPrice){
-	houses[houseCount] = new factory();
+	houses[houseCount] = new shop();
 	houses[houseCount].id = housecount;
 	houses[houseCount].size = size;
 	houses[houseCount].price = price;
