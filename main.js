@@ -7,6 +7,9 @@ var freeOffice = [];
 var freeShop = [];
 var freeFactory = [];
 
+var month = 1;
+var year = 1;
+
 function removeFreeOffice(){
 	freeOffice.splice(0,1);
 }

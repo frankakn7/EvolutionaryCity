@@ -5,7 +5,7 @@ var globalInterests = ['math','science','IT','art'];
 
 function person(id,age,income,job,gender,interests,education,
 				medicalState,spendingType,IQ,happiness,
-				relationship,workplace) {
+				relationship,workplace,birthMonth) {
 				
     this.id = id;
 	this.age = age;
@@ -20,6 +20,7 @@ function person(id,age,income,job,gender,interests,education,
 	this.happiness = happiness;
 	this.relationship = relationship;
 	this.workplace = workplace;
+	this.birthday = birthMonth;
 
 	var money = 0;
 	
@@ -53,6 +54,13 @@ function person(id,age,income,job,gender,interests,education,
 	this.foundCompany = function(){
 		foundCompany(this.id);
 	}
+	
+	this.birthDay = function(){
+		if(month === this.birthMonth){
+			this.age ++;
+			console.log(this.id+": "+this.age);
+		}
+	}
 }
 
 function bornBaby(){
@@ -70,6 +78,7 @@ function bornBaby(){
 	population[populationCount].happiness = 100;
 	population[populationCount].relationship = false;
 	population[populationCount].workplace = 'None';
+	population[populationCount].birthMonth = month;
 	
 	populationCount ++;
 }

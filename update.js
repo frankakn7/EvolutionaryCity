@@ -9,7 +9,16 @@ function updatCanvas() {
 }
 
 function newMonth() {
-
+	for(var i in population){
+		population[i].birthDay();
+	}
+	
+	if(month < 12){
+		month ++;
+	}else{
+		year ++;
+		month = 1;
+	}
 }
 
 function update() {
@@ -18,5 +27,5 @@ function update() {
 
 }
 
-setInterval(newMonth, 1000 / 25);
+setInterval(newMonth, 1000 / 5);
 setInterval(update, 1000 / 25);
