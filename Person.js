@@ -51,7 +51,7 @@ function person(id,age,income,job,gender,interests,education,
 	}
 	
 	this.foundCompany = function(){
-		foundCompany('Evil corp.',this.id);
+		foundCompany(this.id);
 	}
 }
 

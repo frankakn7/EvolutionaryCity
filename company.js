@@ -87,10 +87,9 @@ function Company(id, name, ceo, hq) {
 	}
 }
 
-function foundCompany(name,ceo){
+function foundCompany(ceo){
 	companys[companyCount] = new Company();
 	companys[companyCount].id = companyCount;
-	companys[companyCount].name = name;
 	companys[companyCount].ceo = ceo;
 	companys[companyCount].hq = companys[companyCount].getOffice();
 	
