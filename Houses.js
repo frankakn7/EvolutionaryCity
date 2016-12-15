@@ -24,6 +24,16 @@ function residence(id,size,price,x,y,appartements){
 	this.inhabitants = [];
 	this.appartements = appartements;
 	
+	this.isFree = function(){
+		if(this.inhabitants.length >= this.appartements){
+			removeFreeResidence(this.id);
+			return false;
+		}else{
+			return true;
+		}
+		console.log("True");
+	}
+	
 }
 residence.prototype = new building();
 
@@ -70,6 +80,7 @@ function buildResidence(size,price,x,y,appartments){
 	houses[houseCount].y = y;
 	houses[houseCount].appartments = appartments;
 	
+	houses[houseCount].free();
 	
 	needUpdate = true;
 	
@@ -132,4 +143,5 @@ function buildFactory(size,price,x,y,workspaces,company,product){
 }
 
 buildResidence(10,20000,100,100,50);
+buildResidence(10,20000,170,170,5);
 buildFactory(10,20000,340,340,50,0,'none');

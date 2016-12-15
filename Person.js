@@ -59,7 +59,23 @@ function person(id,age,income,job,gender,interests,education,
 	this.birthDay = function(){
 		if(month === this.birthMonth){
 			this.age ++;
-			console.log(this.id+": "+this.age);
+		}
+	}
+	
+	this.findHome = function(){
+		if(freeResidence.length === 0){
+			return;
+		}else{
+			var residence = freeResidence[0];
+			//if(this.capital >= houses[residence].price){
+				if(houses[residence].isFree()){
+					houses[residence].inhabitants.push(this.id);
+					this.home = houses[residence].id;
+					return residence;
+				}else{
+					this.findHome();
+				}
+			//}
 		}
 	}
 }

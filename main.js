@@ -7,6 +7,8 @@ var freeOffice = [];
 var freeShop = [];
 var freeFactory = [];
 
+var freeResidence = [];
+
 var month = 1;
 var year = 1;
 
@@ -20,4 +22,9 @@ function removeFreeShop() {
 
 function removeFreeFactory() {
     freeFactory.splice(0, 1);
+}
+
+function removeFreeResidence(id) {
+	var index = freeResidence.indexOf(id);
+	freeResidence.splice(index,1);
 }
