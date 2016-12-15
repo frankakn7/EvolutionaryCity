@@ -1,11 +1,11 @@
 var population = [];
 var populationCount = 1;
 
-var globalInterests = ['math','science','IT','art'];
+var globalInterests = ['math','biology','physiks','IT','art','psychology'];
 
 function person(id,age,income,job,gender,interests,education,
 				medicalState,spendingType,IQ,happiness,
-				relationship,workplace,birthMonth) {
+				relationship,workplace,birthMonth,home) {
 				
     this.id = id;
 	this.age = age;
@@ -21,6 +21,7 @@ function person(id,age,income,job,gender,interests,education,
 	this.relationship = relationship;
 	this.workplace = workplace;
 	this.birthday = birthMonth;
+	this.home = home;
 
 	var money = 0;
 	
@@ -36,7 +37,7 @@ function person(id,age,income,job,gender,interests,education,
 	
 	this.randomInterests = function(){
 		for(var i = 0; i < 3; i++){
-			this.interests[i] = globalInterests[Math.round(Math.random()*3)];
+			this.interests[i] = globalInterests[Math.round(Math.random()*globalInterests.length-1)];
 		}
 	}
 	
@@ -79,6 +80,7 @@ function bornBaby(){
 	population[populationCount].relationship = false;
 	population[populationCount].workplace = 'None';
 	population[populationCount].birthMonth = month;
+	population[populationCount].home = 'None';
 	
 	populationCount ++;
 }
