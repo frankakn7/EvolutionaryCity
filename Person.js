@@ -1,7 +1,7 @@
 var population = [];
 var populationCount = 1;
 
-var globalInterests = ['math','biology','physiks','IT','art','psychology'];
+var globalInterests = ['math','biology','physiks','IT','art','psychology','chemistry'];
 
 function person(id,age,income,job,gender,interests,education,
 				medicalState,spendingType,IQ,happiness,
@@ -20,7 +20,7 @@ function person(id,age,income,job,gender,interests,education,
 	this.happiness = happiness;
 	this.relationship = relationship;
 	this.workplace = workplace;
-	this.birthday = birthMonth;
+	this.birthMonth = birthMonth;
 	this.home = home;
 
 	var money = 0;
@@ -63,19 +63,21 @@ function person(id,age,income,job,gender,interests,education,
 	}
 	
 	this.findHome = function(){
-		if(freeResidence.length === 0){
-			return;
-		}else{
-			var residence = freeResidence[0];
-			//if(this.capital >= houses[residence].price){
-				if(houses[residence].isFree()){
-					houses[residence].inhabitants.push(this.id);
-					this.home = houses[residence].id;
-					return residence;
-				}else{
-					this.findHome();
-				}
-			//}
+		if(!(this.home)){
+			if(freeResidence.length === 0){
+				return;
+			}else{
+				var residence = freeResidence[0];
+				//if(this.capital >= houses[residence].price){
+					if(houses[residence].isFree()){
+						houses[residence].inhabitants.push(this.id);
+						this.home = houses[residence].id;
+						return residence;
+					}else{
+						this.findHome();
+					}
+				//}
+			}
 		}
 	}
 }
@@ -96,7 +98,7 @@ function bornBaby(){
 	population[populationCount].relationship = false;
 	population[populationCount].workplace = 'None';
 	population[populationCount].birthMonth = month;
-	population[populationCount].home = 'None';
+	population[populationCount].home = false;
 	
 	populationCount ++;
 }
