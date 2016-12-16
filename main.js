@@ -13,7 +13,7 @@ var month = 1;
 var year = 1;
 
 function removeFreeOffice(){
-	freeOffice.splice(0,1);
+	freeOffice.splice(0, 1);
 }
 
 function removeFreeShop() {
@@ -26,5 +26,5 @@ function removeFreeFactory() {
 
 function removeFreeResidence(id) {
 	var index = freeResidence.indexOf(id);
-	freeResidence.splice(index,1);
+	freeResidence.splice(index, 1);
 }
