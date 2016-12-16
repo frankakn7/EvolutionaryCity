@@ -95,7 +95,7 @@ function person(id,age,income,job,gender,interests,education,
 		//Loop through interests
 		//Maybe same IQ
 	    if (this.age >= 18 && !(this.relationship)) {
-	        if(Math.random() > 0.2){
+	        if(Math.random() < 0.2){
 			    for(var i in houses[this.home].inhabitants){
 	                var partner = population[i];
 	                if(partner.gender != this.gender && partner.relationship === false && partner.age >= 18){
@@ -108,6 +108,13 @@ function person(id,age,income,job,gender,interests,education,
 	        }
 		}
 		console.log("Not capable for relationship")
+	}
+
+	this.getChild = function () {
+	    if (this.relationship !== false && this.gender === 'Female' && Math.random() < 0.2) {
+	        bornBaby(this.relationship, this.id);
+            console.warn('villager ' + this.id + ' procreated')
+	    }
 	}
 }
 
