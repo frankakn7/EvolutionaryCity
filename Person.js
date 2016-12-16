@@ -101,7 +101,7 @@ function person(id,age,income,job,gender,interests,education,
 	                if(partner.gender != this.gender && partner.relationship === false && partner.age >= 18){
 	                    this.relationship = population[i].id;
 	                    partner.relationship = this.id;
-	                    console.log(this.id+" & "+i+" are now in a relationship");
+	                    console.warn(this.id + " & " + i + " are now in a relationship");
 	                    return;
 	                }
 	            }
