@@ -1,11 +1,11 @@
 var population = [];
-var populationCount = 1;
+var populationCount = 0;
 
 var globalInterests = ['math','biology','physiks','IT','art','psychology','chemistry'];
 
 function person(id,age,income,job,gender,interests,education,
 				medicalState,spendingType,IQ,happiness,
-				relationship,workplace,birthMonth,home) {
+				relationship,workplace,birthMonth,home,father,mother) {
 				
     this.id = id;
 	this.age = age;
@@ -22,6 +22,8 @@ function person(id,age,income,job,gender,interests,education,
 	this.workplace = workplace;
 	this.birthMonth = birthMonth;
 	this.home = home;
+	this.father = father;
+	this.mother = mother;
 
 	var money = 0;
 	
@@ -56,14 +58,8 @@ function person(id,age,income,job,gender,interests,education,
 		foundCompany(this.id);
 	}
 	
-	this.birthDay = function(){
-		if(month === this.birthMonth){
-			this.age ++;
-		}
-	}
-	
 	this.findHome = function(){
-		if(!(this.home)){
+		if(!(this.home) && this.age >= 18){
 			if(freeResidence.length === 0){
 				return;
 			}else{
@@ -78,14 +74,45 @@ function person(id,age,income,job,gender,interests,education,
 					}
 				//}
 			}
+		}else if(age < 18){
+			this.home = population[father].home;
+			houses[this.home].inhabitants.push(this.id);
 		}
+	}
+	
+	this.birthDay = function(){
+		if(month === this.birthMonth){
+			this.age ++;
+			if(this.age === 18){
+				this.home = false;
+			}
+		}
+		this.findHome();
+	}
+	
+	this.getRelationship = function(){
+		//Add Workplace search
+		//Loop through interests
+		//Maybe same IQ
+		if(this.age >= 18 && !(this.relationship)){
+			for(var i in houses[this.home].inhabitants){
+				var partner = population[i];
+				if(partner.gender != this.gender && partner.relationship === false && partner.age >= 18){
+					this.relationship = population[i].id;
+					partner.relationship = this.id;
+					console.log(this.id+" & "+i+" are now in a relationship");
+					return;
+				}
+			}
+		}
+		console.log("Not capable for relationship")
 	}
 }
 
-function bornBaby(){
+function bornBaby(father, mother){
 	population[populationCount] = new person();
 	population[populationCount].id = populationCount;
-	population[populationCount].age = 0;
+	population[populationCount].age = 18;
 	population[populationCount].income = 0;
 	population[populationCount].job = false;
 	population[populationCount].gender = population[populationCount].randomGender();
@@ -99,10 +126,14 @@ function bornBaby(){
 	population[populationCount].workplace = 'None';
 	population[populationCount].birthMonth = month;
 	population[populationCount].home = false;
+	population[populationCount].father = father;
+	population[populationCount].mother = mother;
+	
+	population[populationCount].findHome();
 	
 	populationCount ++;
 }
 
 for(var i = 0; i < 10; i++){
-	bornBaby();
+	bornBaby(0,0);
 }

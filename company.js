@@ -1,5 +1,5 @@
 var companys = [];
-var companyCount = 1;
+var companyCount = 0;
 
 function Company(id, name, ceo, hq) {
 	var that = this;
