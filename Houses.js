@@ -27,13 +27,10 @@ function residence(id, size, price, x, y, appartements) {
     this.isFree = function () {
         if (this.inhabitants.length >= this.appartements) {
             removeFreeResidence(this.id);
-            console.warn("full");
             return false;
         } else {
-            console.log("True");
             return true;
         }
-        //console.log("True");
     }
 
 }
