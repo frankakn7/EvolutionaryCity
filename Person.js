@@ -94,16 +94,18 @@ function person(id,age,income,job,gender,interests,education,
 		//Add Workplace search
 		//Loop through interests
 		//Maybe same IQ
-		if(this.age >= 18 && !(this.relationship)){
-			for(var i in houses[this.home].inhabitants){
-				var partner = population[i];
-				if(partner.gender != this.gender && partner.relationship === false && partner.age >= 18){
-					this.relationship = population[i].id;
-					partner.relationship = this.id;
-					console.log(this.id+" & "+i+" are now in a relationship");
-					return;
-				}
-			}
+	    if (this.age >= 18 && !(this.relationship)) {
+	        if(Math.random() > 0.2){
+			    for(var i in houses[this.home].inhabitants){
+	                var partner = population[i];
+	                if(partner.gender != this.gender && partner.relationship === false && partner.age >= 18){
+	                    this.relationship = population[i].id;
+	                    partner.relationship = this.id;
+	                    console.log(this.id+" & "+i+" are now in a relationship");
+	                    return;
+	                }
+	            }
+	        }
 		}
 		console.log("Not capable for relationship")
 	}
