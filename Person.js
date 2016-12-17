@@ -42,7 +42,8 @@ function person(id,age,income,job,gender,interests,education,
 	
 	this.randomInterests = function(){
 		for(var i = 0; i < 3; i++){
-			this.interests[i] = globalInterests[Math.round(Math.random()*globalInterests.length-1)];
+			var random = Math.round(Math.random()*(globalInterests.length-1));
+			this.interests.push(globalInterests[random]);
 		}
 	}
 	
@@ -78,7 +79,7 @@ function person(id,age,income,job,gender,interests,education,
 				//}
 			}
 		}else if(age < 18){
-			this.home = population[father].home;
+			this.home = population[this.father].home;
 			houses[this.home].inhabitants.push(this.id);
 		}
 	}
@@ -104,10 +105,10 @@ function person(id,age,income,job,gender,interests,education,
 				continue;
 			}
 			
-			if(Math.abs[this.IQ - partner.IQ] < 10){
+			if(Math.abs(this.IQ - partner.IQ) < 10){
 				score ++;
 			}
-			if(Math.abs[this.age - partner.age] < 5){
+			if(Math.abs(this.age - partner.age) < 5){
 				score ++;
 			}
 			if(this.education === partner.education){
@@ -154,7 +155,7 @@ function person(id,age,income,job,gender,interests,education,
 	}
 
 	this.getChild = function () {
-	    if(this.relationship != false && this.gender === 'Female' && Math.random() < this.babyChance) {
+	    if(this.relationship != false && this.gender === 'Female' && Math.random() < 1) {
 	        bornBaby(this.relationship, this.id);
             console.warn('villager ' + this.id + ' procreated')
             this.babyChance /= 2;
