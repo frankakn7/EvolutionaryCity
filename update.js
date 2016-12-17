@@ -27,5 +27,5 @@ function update() {
     }
 }
 
-setInterval(newMonth, 1000/4);
+setInterval(newMonth, 1000);
 setInterval(update, 1000 / 25);
