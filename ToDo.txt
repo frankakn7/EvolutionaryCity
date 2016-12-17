@@ -5,9 +5,9 @@ To DO:
 		-Automatic Relationships
 		-Automatic reproduction
 		-Death
-		-Health (Small Deseases)
+		-Health (Small Diseases)
 		-Criminality
-		-Happyness
+		-Happiness
 		-Social System
 		-Spending Type
 		-Shopping
@@ -19,7 +19,7 @@ To DO:
 	-Companys
 		-company types (Construction, Production, Selling) (Only one type)
 			-Entertainment System (Cinema, Theaters)
-		-Mother Company (can own companys of different types)
+		-Mother Company (can own companies of different types)
 			-Subsidiary company's (Tochterfirma) 
 		-Buy Factory's / Shops
 		-Demand Construction of Building
