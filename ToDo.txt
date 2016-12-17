@@ -129,4 +129,5 @@ Complete To DO:
 	-User Interface
 		-Pictures (Houses ...)
 		-Movement of Canvas
-		-Yearly Report	
+		-Yearly Report (right side of canvas)
+		-Graph below canvas	
