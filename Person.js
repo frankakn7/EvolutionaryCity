@@ -136,8 +136,6 @@ function person(id,age,income,job,gender,interests,education,
 	
 	this.getRelationship = function(){
 		//Add Workplace search
-		//Loop through interests
-		//Maybe same IQ
 	    if (this.age >= 18 && !(this.relationship)) {
                 var partner = this.evaluateRelationshipPartner();
                 console.log(this.relationshipChance);
