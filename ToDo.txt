@@ -6,45 +6,58 @@ To DO:
 		-Automatic reproduction
 		-Death
 		-Health (Small Diseases)
-		-Criminality
-		-Happiness
-		-Social System
-		-Spending Type
+		-Spending Type (use)
 		-Shopping
+		-Happiness
+		-Criminality
+		-Social System
 		-? Family Disputes
 		- Rich / Poor
 	-Building's
 		-Appartements
 		-Houses (Single Family)
+		-Banks
+		-Shops
+			-Customers
 	-Companys
-		-company types (Construction, Production, Selling) (Only one type)
-			-Entertainment System (Cinema, Theaters)
-		-Mother Company (can own companies of different types)
-			-Subsidiary company's (Tochterfirma) 
 		-Buy Factory's / Shops
-		-Demand Construction of Building
 		-Workplaces
-		-Build Houses
-		-Pay Workers
-		-Logistics
+			-Pay Workers
 		-Import / Export
+		-company types (Only one type)
+			-Construction
+			-Production
+			-Selling
+			-Banks
+			-Entertainment (Cinema, Theaters)
+		-bankruptcy
+			-Fire workers
+			-Sell Houses
+		-Build Houses
+		-Demand Construction of Building
+		-Mother Company (own companies of different types)
+			-Subsidiary company's (Tochterfirma) 
+		-Logistics
 	-State
 		-taxes
-		-Roads
-			-Upgrade Roads
-		-Schools/education
+		-Schools / Education
 		-Health Care (Hospital)
 		-Emergency System (Police,Fire Department, Ambulance)
-		-? pension
-	-Catastrophe's 
+		-pension
+	-Catastrophe's
+		-Epidemics 
 		-Tornados
-		-Epidemics
 	-Other City's
 		-Communication
 		-Airports
 		-Trading
 		-? War
-		
-	<-----------------VISUAL------------->
+	-Infrastructure
+		-Build Homes near Other Homes
+		-Roads
+			-Upgrade Roads
+		-Connect Homes
+	-User Interface
 		-Pictures (Houses ...)
 		-Movement of Canvas
+		-Yearly Report	
