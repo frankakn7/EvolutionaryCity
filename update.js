@@ -35,7 +35,6 @@ function newMonth() {
 		population[id].die();
 		if(freeResidence.length === 0){
 			buildResidence(10,20000,Math.round(Math.random()*500),Math.round(Math.random()*500),50);
-			console.warn("Build House");
 		}
 	}
 	

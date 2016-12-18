@@ -29,7 +29,7 @@ function person(id,age,income,job,gender,interests,education,
 	this.money = 0;
 	this.deathChance = 0.0001;
 	
-	this.babyChance = 0.05;
+	this.babyChance = 1;
 	this.relationshipChance = 0.1;
 	
 	//this.inheritance = inheritance;
@@ -161,13 +161,14 @@ function person(id,age,income,job,gender,interests,education,
 	
 	this.die = function(){
 		if(this.age >= 60){
-			this.deathChance *= 1.01;
+			this.deathChance *= 1.001;
 		}
 		if(Math.random() < this.deathChance){
 			console.warn(this.id+" Died");
 			var index = living.indexOf(this.id);
 			living.splice(index,1);
 			population[i].medicalState = 0;
+			info.death ++;
 		}
 	}
 }
