@@ -6,6 +6,7 @@ var needUpdate = true;
 var info = {
     year: 0,
     population: 0,
+    death: 0,
     anualBirth: 0,
     anualDeath: 0,
     groth: 0,
