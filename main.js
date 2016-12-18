@@ -3,6 +3,14 @@ var context = canvas.getContext("2d");
 
 var needUpdate = true;
 
+var info = {
+    year: 0,
+    population: 0,
+    anualBirth: 0,
+    anualDeath: 0,
+    groth: 0,
+}
+
 var freeOffice = [];
 var freeShop = [];
 var freeFactory = [];
