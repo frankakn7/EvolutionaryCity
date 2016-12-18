@@ -8,6 +8,14 @@ function updatCanvas() {
 
 }
 
+function updateInfo() {
+    info.year = year;
+    info.population = populationCount;
+    info.anualBirth = 0;
+    info.anualDeath = 0;
+    info.groth = 0;
+}
+
 function newMonth() {
 	for(var i in population){
 		population[i].birthDay();
@@ -19,6 +27,7 @@ function newMonth() {
 		year ++;
 		month = 1;
 	}
+	updateInfo();
 }
 
 function update() {
