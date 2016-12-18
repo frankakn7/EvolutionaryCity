@@ -9,7 +9,7 @@ function updatCanvas() {
 }
 
 function infoPack(){
-    var pack = "Year: " + info.year + "<br>" + "Population: " + info.population + "<br>" + "Deaths: " + info.death;
+    var pack = "Year: " + info.year + "<br>" + "Population: " + info.population + "<br>" + "Births: " + info.birth + "<br>" + "Deaths: " + info.death;
 
     return pack;
 
