@@ -11,6 +11,7 @@ var info = {
     anualBirth: 0,
     anualDeath: 0,
     groth: 0,
+    relationship: 0,
 }
 
 var freeOffice = [];
