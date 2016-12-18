@@ -144,6 +144,7 @@ function person(id,age,income,job,gender,interests,education,
 	                    this.relationship = partner.id;
 	                    partner.relationship = this.id;
 	                    //console.warn(this.id + " & " + partner.id + " are now in a relationship");
+	                    info.relationship ++;
 	                    return;
 	                }
             	}
@@ -162,7 +163,7 @@ function person(id,age,income,job,gender,interests,education,
 	
 	this.die = function(){
 		if(this.age >= 60){
-			this.deathChance *= 1.001;
+			this.deathChance *= 1.01;
 		}
 		if(Math.random() < this.deathChance){
 			console.warn(this.id+" Died");
