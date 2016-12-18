@@ -2,8 +2,6 @@ To DO:
 	-Economy
 		-Money system
 	-Person
-		-Automatic Relationships
-		-Automatic reproduction
 		-Death
 		-Health (Small Diseases)
 		-Spending Type (use)
@@ -51,12 +49,14 @@ To DO:
 		-Communication
 		-Airports
 		-Trading
+		-immigration
 		-? War
 	-Infrastructure
 		-Build Homes near Other Homes
 		-Roads
 			-Upgrade Roads
 		-Connect Homes
+		-Rich / Poor districts
 	-User Interface
 		-Pictures (Houses ...)
 		-Movement of Canvas
@@ -126,6 +126,7 @@ Complete To DO:
 		-Roads
 			-Upgrade Roads
 		-Connect Homes
+		-Rich / Poor districts
 	-User Interface
 		-Pictures (Houses ...)
 		-Movement of Canvas
