@@ -19,6 +19,8 @@ function updateInfo() {
 function newMonth() {
 	for(var i in population){
 		population[i].birthDay();
+		population[i].getRelationship();
+		population[i].getChild();
 	}
 	
 	if(month < 12){

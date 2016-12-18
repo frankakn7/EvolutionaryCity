@@ -1,6 +1,6 @@
 var population = [];
 var populationCount = 0;
-var initialPopulation = 10;
+var initialPopulation = 100;
 
 var globalInterests = ['math','biology','physiks','IT','art','psychology','chemistry'];
 
@@ -27,8 +27,8 @@ function person(id,age,income,job,gender,interests,education,
 	this.mother = mother;
 	this.money = 0;
 	
-	this.babyChance = 0.1;
-	this.relationshipChance = 0.3;
+	this.babyChance = 0.05;
+	this.relationshipChance = 0.1;
 	
 	//this.inheritance = inheritance;
 	
@@ -130,33 +130,30 @@ function person(id,age,income,job,gender,interests,education,
 				bestPartner[1] = score;
 			}
 		}
-		console.log(bestPartner[0].id+" "+bestPartner[1]);
 		return bestPartner[0];
 	}	
 	
 	this.getRelationship = function(){
 		//Add Workplace search
-	    if (this.age >= 18 && !(this.relationship)) {
+	    if (this.age >= 18 && !(this.relationship) && this.home) {
                 var partner = this.evaluateRelationshipPartner();
-                console.log(this.relationshipChance);
                 if(Math.random() < this.relationshipChance){
 	                if(partner.gender != this.gender && partner.relationship === false && partner.age >= 18){
 	                    this.relationship = partner.id;
 	                    partner.relationship = this.id;
-	                    console.warn(this.id + " & " + partner.id + " are now in a relationship");
+	                    //console.warn(this.id + " & " + partner.id + " are now in a relationship");
 	                    return;
 	                }
             	}
-	        return
+	        return;
 		}
-		console.log("Not capable for relationship")
 	}
 
 	this.getChild = function () {
-	    if(this.relationship != false && this.gender === 'Female' && Math.random() < 1) {
+	    if(this.relationship != false && this.gender === 'Female' && Math.random() < this.babyChance) {
 	        bornBaby(this.relationship, this.id);
             console.warn('villager ' + this.id + ' procreated')
-            this.babyChance /= 2;
+            this.babyChance = this.babyChance /= 2;
 	    }
 	}
 }
@@ -190,6 +187,6 @@ function bornBaby(father, mother){
 	populationCount ++;
 }
 
-for(var i = 0; i < 10; i++){
+for(var i = 0; i < initialPopulation; i++){
 	bornBaby(0,0);
 }
