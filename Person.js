@@ -156,6 +156,7 @@ function person(id,age,income,job,gender,interests,education,
 	        bornBaby(this.relationship, this.id);
             //console.warn('villager ' + this.id + ' procreated')
             this.babyChance = this.babyChance /= 2;
+            info.birth ++;
 	    }
 	}
 	
