@@ -26,6 +26,7 @@ function person(id,age,income,job,gender,interests,education,
 	this.father = father;
 	this.mother = mother;
 	this.money = 0;
+	this.deathChance = 0.001;
 	
 	this.babyChance = 0.05;
 	this.relationshipChance = 0.1;
@@ -155,6 +156,16 @@ function person(id,age,income,job,gender,interests,education,
             //console.warn('villager ' + this.id + ' procreated')
             this.babyChance = this.babyChance /= 2;
 	    }
+	}
+	
+	this.die = function(){
+		if(this.age >= 60){
+			this.deathChance *= 1.01;
+		}
+		if(Math.random() < this.deathChance){
+			console.warn(this.id+" Died");
+			population.splice(this.id,1);
+		}
 	}
 }
 

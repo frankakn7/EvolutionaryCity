@@ -21,6 +21,7 @@ function newMonth() {
 		population[i].birthDay();
 		population[i].getRelationship();
 		population[i].getChild();
+		population[i].die();
 		if(freeResidence.length === 0){
 			buildResidence(10,20000,Math.round(Math.random()*500),Math.round(Math.random()*500),50);
 			console.warn("Build House");
