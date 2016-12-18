@@ -13,6 +13,10 @@ function newMonth() {
 		population[i].birthDay();
 		population[i].getRelationship();
 		population[i].getChild();
+		if(freeResidence.length === 0){
+			buildResidence(10,20000,Math.round(Math.random()*500),Math.round(Math.random()*500),50);
+			console.warn("Build House");
+		}
 	}
 	
 	if(month < 12){
@@ -29,5 +33,5 @@ function update() {
     }
 }
 
-setInterval(newMonth, 1000);
+setInterval(newMonth, 1000/12);
 setInterval(update, 1000 / 25);
