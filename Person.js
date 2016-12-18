@@ -1,4 +1,5 @@
 var population = [];
+var living = [];
 var populationCount = 0;
 var initialPopulation = 100;
 
@@ -26,7 +27,7 @@ function person(id,age,income,job,gender,interests,education,
 	this.father = father;
 	this.mother = mother;
 	this.money = 0;
-	this.deathChance = 0.001;
+	this.deathChance = 0.0001;
 	
 	this.babyChance = 0.05;
 	this.relationshipChance = 0.1;
@@ -164,7 +165,9 @@ function person(id,age,income,job,gender,interests,education,
 		}
 		if(Math.random() < this.deathChance){
 			console.warn(this.id+" Died");
-			population.splice(this.id,1);
+			var index = living.indexOf(this.id);
+			living.splice(index,1);
+			population[i].medicalState = 0;
 		}
 	}
 }
@@ -192,6 +195,8 @@ function bornBaby(father, mother){
 	if(populationCount < initialPopulation){
 		population[populationCount].age = 18;
 	}
+	
+	living.push(population[populationCount].id);
 	
 	population[populationCount].findHome();
 	

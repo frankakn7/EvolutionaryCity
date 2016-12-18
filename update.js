@@ -17,7 +17,7 @@ function infoPack(){
 
 function updateInfo() {
     info.year = year;
-    info.population = populationCount;
+    info.population = living.length;
     info.anualBirth = 0;
     info.anualDeath = 0;
     info.groth = 0;
@@ -26,11 +26,13 @@ function updateInfo() {
 }
 
 function newMonth() {
-	for(var i in population){
-		population[i].birthDay();
-		population[i].getRelationship();
-		population[i].getChild();
-		population[i].die();
+	for(var i in living){
+		var id = living.indexOf(living[i]);
+		
+		population[id].birthDay();
+		population[id].getRelationship();
+		population[id].getChild();
+		population[id].die();
 		if(freeResidence.length === 0){
 			buildResidence(10,20000,Math.round(Math.random()*500),Math.round(Math.random()*500),50);
 			console.warn("Build House");
