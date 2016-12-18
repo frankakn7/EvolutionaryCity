@@ -152,7 +152,7 @@ function person(id,age,income,job,gender,interests,education,
 	this.getChild = function () {
 	    if(this.relationship != false && this.gender === 'Female' && Math.random() < this.babyChance) {
 	        bornBaby(this.relationship, this.id);
-            console.warn('villager ' + this.id + ' procreated')
+            //console.warn('villager ' + this.id + ' procreated')
             this.babyChance = this.babyChance /= 2;
 	    }
 	}
