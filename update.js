@@ -8,12 +8,21 @@ function updatCanvas() {
 
 }
 
+function infoPack(){
+    var pack = "Year: " + info.year + "<br>" + "Population: " + info.population;
+
+    return pack;
+
+}
+
 function updateInfo() {
     info.year = year;
     info.population = populationCount;
     info.anualBirth = 0;
     info.anualDeath = 0;
     info.groth = 0;
+
+    document.getElementById("info").innerHTML = infoPack();
 }
 
 function newMonth() {
