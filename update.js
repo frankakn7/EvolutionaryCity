@@ -42,20 +42,21 @@ function updateInfo() {
 
 function newMonth() {
 	for(var i in living){
-		var id = living.indexOf(living[i]);
+		var id = living[i];
 		
 		population[id].birthDay();
 		population[id].getRelationship();
 		population[id].getChild();
 		population[id].die();
-		if(freeResidence.length === 0){
-			buildResidence(10,20000,Math.round(Math.random()*500),Math.round(Math.random()*500),50);
-		}
 	}
 	for(var i in houses){
 		if(houses[i].type === "Residence"){
 			houses[i].isFree();
 		}
+	}
+	
+	if(freeResidence.length === 0){
+		buildResidence(10,20000,Math.round(Math.random()*500),Math.round(Math.random()*500),50);
 	}
 	
 	if(month < 12){
