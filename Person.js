@@ -1,7 +1,7 @@
 var population = [];
 var living = [];
 var populationCount = 0;
-var initialPopulation = 100;
+var initialPopulation = 1000;
 
 var globalInterests = ['math','biology','physiks','IT','art','psychology','chemistry'];
 
@@ -168,7 +168,7 @@ function person(id,age,income,job,gender,interests,education,
 		}
 		var random = Math.random();
 		if(random < this.deathChance){
-			console.log(random+" < "+this.deathChance);
+			//console.log(random+" < "+this.deathChance);
 			
 			var index = living.indexOf(this.id);
 			living.splice(index,1);
