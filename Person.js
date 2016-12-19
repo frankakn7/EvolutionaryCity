@@ -166,13 +166,14 @@ function person(id,age,income,job,gender,interests,education,
 		if(this.age >= 60){
 			this.deathChance *= 1.01;
 		}
-		if(Math.random() < this.deathChance){
-			console.log(this.deathChance);
+		var random = Math.random();
+		if(random < this.deathChance){
+			console.log(random+" < "+this.deathChance);
 			
 			var index = living.indexOf(this.id);
 			living.splice(index,1);
 			
-			population[i].medicalState = 0;
+			population[this.id].medicalState = 0;
 			
 			if(this.home && this.age >= 18){
 				var homeIndex = houses[this.home].inhabitants.indexOf(this.id);
