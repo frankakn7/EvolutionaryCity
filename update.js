@@ -9,10 +9,25 @@ function updatCanvas() {
 }
 
 function infoPack(){
-    var pack = "Year: " + info.year + "<br>" + "Population: " + info.population + "<br>" + "Relationships: " + info.relationship + "<br>" + "Births: " + info.birth + "<br>" + "Deaths: " + info.death;
-
+    var pack = "Year: " + info.year + "<br>" +
+        "Population: " + info.population + "<br>" +
+        "Relationships: " + info.relationship + "<br>" +
+        "Births: " + info.birth + "<br>" +
+        "Deaths: " + info.death + "<br>" +
+        "Anual Birth: " + info.anualBirth + "<br>" +
+        "Anual Death: " + info.anualDeath;
     return pack;
+}
 
+var beforeBirth = 0;
+var beforeDeath = 0;
+
+function anualInfo() {
+    info.anualbirth = info.birth - beforeBirth;
+    beforeBirth = info.birth;
+
+    info.anualDeath = info.death - beforeDeath;
+    beforeDeath = info.death;
 }
 
 function updateInfo() {
@@ -48,6 +63,7 @@ function newMonth() {
 	}else{
 		year ++;
 		month = 1;
+		anualInfo();
 	}
 	updateInfo();
 }
