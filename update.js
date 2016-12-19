@@ -23,7 +23,7 @@ var beforeBirth = 0;
 var beforeDeath = 0;
 
 function anualInfo() {
-    info.anualbirth = info.birth - beforeBirth;
+    info.anualBirth = info.birth - beforeBirth;
     beforeBirth = info.birth;
 
     info.anualDeath = info.death - beforeDeath;
@@ -33,8 +33,8 @@ function anualInfo() {
 function updateInfo() {
     info.year = year;
     info.population = living.length;
-    info.anualBirth = 0;
-    info.anualDeath = 0;
+    //info.anualBirth = 0;
+    //info.anualDeath = 0;
     info.groth = 0;
 
     document.getElementById("info").innerHTML = infoPack();
