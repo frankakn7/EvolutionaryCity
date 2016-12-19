@@ -25,14 +25,24 @@ function residence(id, size, price, x, y, appartements) {
     this.appartements = appartements;
 
     this.isFree = function () {
-        if (this.inhabitants.length >= this.appartements) {
-            removeFreeResidence(this.id);
+        if(this.inhabitants.length >= this.appartements) {
+	        for(var i in freeResidence){
+		        if(freeResidence[i] === this.id){
+		            removeFreeResidence(this.id);
+					//console.warn("Removed: "+this.id);
+				}
+			}
             return false;
-        } else {
-            return true;
+        }else{
+	        for(var i in freeResidence){
+		        if(freeResidence[i] === this.id){
+			        return true;
+		        }
+	        }
+	        freeResidence.push(this.id);
+	        //console.warn("Added: "+this.id);
         }
     }
-
 }
 residence.prototype = new building();
 

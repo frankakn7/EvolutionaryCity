@@ -29,7 +29,7 @@ function person(id,age,income,job,gender,interests,education,
 	this.money = 0;
 	this.deathChance = 0.0001;
 	
-	this.babyChance = 1;
+	this.babyChance = 0.1;
 	this.relationshipChance = 0.1;
 	
 	//this.inheritance = inheritance;
@@ -100,7 +100,8 @@ function person(id,age,income,job,gender,interests,education,
 		var bestPartner = [0,0];
 		for(var i in houses[this.home].inhabitants){
 			//IQ, age, 1*same interest, education, medical state
-			var partner = population[i];
+			var id = houses[this.home].inhabitants[i];
+			var partner = population[id];
 			var score = 0;
 			
 			if(partner.id === this.id || partner.gender === this.gender){
@@ -166,10 +167,18 @@ function person(id,age,income,job,gender,interests,education,
 			this.deathChance *= 1.01;
 		}
 		if(Math.random() < this.deathChance){
-			console.warn(this.id+" Died");
+			console.log(this.deathChance);
+			
 			var index = living.indexOf(this.id);
 			living.splice(index,1);
+			
 			population[i].medicalState = 0;
+			
+			if(this.home && this.age >= 18){
+				var homeIndex = houses[this.home].inhabitants.indexOf(this.id);
+				houses[this.home].inhabitants.splice(homeIndex,1);
+			}
+			
 			info.death ++;
 		}
 	}

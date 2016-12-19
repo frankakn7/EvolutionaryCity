@@ -37,6 +37,11 @@ function newMonth() {
 			buildResidence(10,20000,Math.round(Math.random()*500),Math.round(Math.random()*500),50);
 		}
 	}
+	for(var i in houses){
+		if(houses[i].type === "Residence"){
+			houses[i].isFree();
+		}
+	}
 	
 	if(month < 12){
 		month ++;
