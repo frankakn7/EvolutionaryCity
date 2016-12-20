@@ -1,6 +1,5 @@
 var houses = [];
 var houseCount = 1;
-var test;
 
 function building(id, size, price, x, y) {
     this.id = id;
