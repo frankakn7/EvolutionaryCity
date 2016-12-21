@@ -54,11 +54,13 @@ function office(id, size, price, x, y, workspaces, company) {
 }
 office.prototype = new building();
 
-function shop(id, size, price, x, y, workspaces, company, productType, productPrice, customerPerWorker) {
+function shop(id, size, price, x, y, workspaces, company, productType, maxProducts, productPrice, customerPerWorker) {
     this.type = 'Shop';
     this.workspaces = workspaces;
     this.company = company;
     this.productType = productType;
+    this.maxProducts = maxProducts;
+    this.productNum = 0;
     this.customers = [];				// per month
     this.productPrice = productPrice;
     this.customerPerWorker = customerPerWorker;
@@ -123,6 +125,7 @@ function buildShop(size, price, x, y, workspaces, company, product, productPrice
     houses[houseCount].workspaces = workspaces;
     houses[houseCount].company = company;
     houses[houseCount].productType = product;
+    houses[houseCount].maxProducts = 0;
     houses[houseCount].productPrice = productPrice;
 
     houses[houseCount].free();

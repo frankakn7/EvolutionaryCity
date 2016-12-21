@@ -28,8 +28,9 @@ function person(id,age,income,job,gender,interests,education,
 	this.mother = mother;
 	this.money = 0;
 	this.deathChance = 0.0001;
+	this.companyChance = 0.0005;
 	
-	this.babyChance = 0.1;
+	this.babyChance = 0.05;
 	this.relationshipChance = 0.1;
 	
 	//this.inheritance = inheritance;
@@ -61,7 +62,25 @@ function person(id,age,income,job,gender,interests,education,
 	}
 	
 	this.foundCompany = function(){
-		foundCompany(this.id);
+		if(this.IQ >= 120){
+			if(Math.random() < this.companyChance){
+				var type;
+				for(var i in this.interests){
+					if(this.interests[i] === 'physiks' || this.interests[i] === 'art'){
+						type = 'construction';
+					}else if(this.interests[i] === 'math' || this.interests[i] === 'psychologie'){
+						type = 'selling';
+					}else{
+						
+					}
+				}
+				
+				foundCompany(this.id);
+				console.log(this.id+" Founded a Company");
+				this.companyChance *= 0.5;
+			}
+		}
+		return;	
 	}
 	
 	this.findHome = function(){

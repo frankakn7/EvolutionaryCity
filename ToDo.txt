@@ -17,7 +17,11 @@ To DO:
 		-Banks
 		-Shops
 			-Customers
+		-Factory
+			-Resources
+		-Warehouse
 	-Companys
+		-Found Company
 		-Buy Factory's / Shops
 		-Workplaces
 			-Pay Workers
@@ -88,7 +92,11 @@ Complete To DO:
 		-Banks
 		-Shops
 			-Customers
+		-Factory
+			-Resources
+		-Warehouse
 	-Companys
+		-Found Company
 		-Buy Factory's / Shops
 		-Workplaces
 			-Pay Workers

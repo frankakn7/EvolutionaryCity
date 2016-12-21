@@ -17,8 +17,11 @@ var info = {
 var freeOffice = [];
 var freeShop = [];
 var freeFactory = [];
-
 var freeResidence = [];
+
+var demand = {
+	
+}
 
 var month = 1;
 var year = 1;
