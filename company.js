@@ -1,11 +1,12 @@
 var companys = [];
 var companyCount = 0;
 
-function Company(id, ceo, hq) {
+function Company(id, ceo, hq,type) {
 	var that = this;
     this.id = id;
     this.ceo = ceo;
     this.hq =  hq;
+    this.type = type;
     this.income = 0;
     this.capital = 20000;
     this.sallary = 0;
@@ -84,11 +85,12 @@ function Company(id, ceo, hq) {
 	}
 }
 
-function foundCompany(ceo){
+function foundCompany(ceo,type){
 	companys[companyCount] = new Company();
 	companys[companyCount].id = companyCount;
 	companys[companyCount].ceo = ceo;
 	companys[companyCount].hq = companys[companyCount].getOffice();
+	companys[companyCount].type = type;
 	
 	companyCount ++;
 }

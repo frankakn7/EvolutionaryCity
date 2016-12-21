@@ -67,17 +67,32 @@ function person(id,age,income,job,gender,interests,education,
 				var type;
 				for(var i in this.interests){
 					if(this.interests[i] === 'physiks' || this.interests[i] === 'art'){
-						type = 'construction';
-					}else if(this.interests[i] === 'math' || this.interests[i] === 'psychologie'){
-						type = 'selling';
-					}else{
-						
+						if(Math.random() > demand.construction){
+							type = 'construction';
+							break;
+						}else{
+							return;
+						}
+					}else if(this.interests[i] === 'math' || this.interests[i] === 'psychology'){
+						if(Math.random() > demand.selling){
+							type = 'selling';
+							break;
+						}else{
+							return;
+						}
+					}else if(this.interests[i] === 'IT' || this.interests[i] === 'chemistry'){
+						if(Math.random() > demand.production){
+							type = 'production';
+							break;
+						}else{
+							return;
+						}
 					}
 				}
 				
-				foundCompany(this.id);
-				console.log(this.id+" Founded a Company");
-				this.companyChance *= 0.5;
+				foundCompany(this.id,type);
+				console.log(this.id+" Founded a "+type+" Company");
+				//this.companyChance *= 0.5;
 			}
 		}
 		return;	

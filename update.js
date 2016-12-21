@@ -40,6 +40,27 @@ function updateInfo() {
     document.getElementById("info").innerHTML = infoPack();
 }
 
+function evaluateDemand(){
+	var construct = 0;
+	var sell = 0;
+	var produce = 0;
+	
+	if(companys.length > 0){	
+		for(var i in companys){
+			if(companys[i].type === 'construction'){
+				construct ++;
+			}else if(companys[i].type === 'selling'){
+				sell ++;
+			}else{
+				produce ++;
+			}
+		}
+	demand.construction = construct / companys.length;
+	demand.selling = sell / companys.length;
+	demand.production = produce / companys.length;
+	}
+}
+
 function newMonth() {
 	for(var i in living){
 		var id = living[i];
@@ -55,6 +76,8 @@ function newMonth() {
 			houses[i].isFree();
 		}
 	}
+	
+	evaluateDemand();
 	
 	if(freeResidence.length === 0){
 		buildResidence(10,20000,Math.round(Math.random()*500),Math.round(Math.random()*500),50);

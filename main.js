@@ -20,7 +20,9 @@ var freeFactory = [];
 var freeResidence = [];
 
 var demand = {
-	
+	construction: 0,
+	selling: 0,
+	production: 0,
 }
 
 var month = 1;
