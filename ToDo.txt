@@ -2,7 +2,6 @@ To DO:
 	-Economy
 		-Money system
 	-Person
-		-Death
 		-Health (Small Diseases)
 		-Spending Type (use)
 		-Shopping
