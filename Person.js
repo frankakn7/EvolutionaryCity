@@ -214,6 +214,11 @@ function person(id,age,income,job,gender,interests,education,
 				houses[this.home].inhabitants.splice(homeIndex,1);
 			}
 			
+			if(this.relationship){
+				population[this.relationship].relationship = false;
+				info.relationship --;
+			}
+			
 			info.death ++;
 		}
 	}
