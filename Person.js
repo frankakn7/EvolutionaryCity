@@ -1,7 +1,7 @@
 var population = [];
 var living = [];
 var populationCount = 0;
-var initialPopulation = 1000000;
+var initialPopulation = 10000;
 
 var globalInterests = ['math','biology','physiks','IT','art','psychology','chemistry'];
 
@@ -108,13 +108,13 @@ function person(id,age,income,job,gender,interests,education,
 					if(houses[residence].isFree()){
 						houses[residence].inhabitants.push(this.id);
 						this.home = houses[residence].id;
-						return residence;
+						return;
 					}else{
 						this.findHome();
 					}
 				//}
 			}
-		}else if(age < 18){
+		}else if(this.age < 18){
 			this.home = population[this.father].home;
 			houses[this.home].inhabitants.push(this.id);
 		}

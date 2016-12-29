@@ -25,6 +25,8 @@ var beforeDeath = 0;
 
 var houseCalc = 0;
 
+var homeless = 0;
+
 function anualInfo() {
     info.annualBirth = info.birth - beforeBirth; 
     beforeBirth = info.birth; 
@@ -69,8 +71,13 @@ function evaluateDemand(){
 }
 
 function newMonth() {
+	homeless = living.length;
 	for(var i in living){
 		var id = living[i];
+		
+		if(population[id].home){
+			homeless --;
+		}
 		
 		population[id].birthDay();
 		population[id].getRelationship();
@@ -87,7 +94,7 @@ function newMonth() {
 	
 	evaluateDemand();
 	
-	if(freeResidence.length === 0){
+	for(var i = 0; i < homeless; i += 50){
 		buildResidence(10,20000,Math.round(Math.random()*500),Math.round(Math.random()*500),50);
 		houseCalc ++;
 	}
