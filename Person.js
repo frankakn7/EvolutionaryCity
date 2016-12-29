@@ -1,7 +1,7 @@
 var population = [];
 var living = [];
 var populationCount = 0;
-var initialPopulation = 1000;
+var initialPopulation = 1000000;
 
 var globalInterests = ['math','biology','physiks','IT','art','psychology','chemistry'];
 

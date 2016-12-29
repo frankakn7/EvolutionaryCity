@@ -69,6 +69,7 @@ function newMonth() {
 		population[id].getRelationship();
 		population[id].getChild();
 		population[id].foundCompany();
+		population[id].findHome();
 		population[id].die();
 	}
 	for(var i in houses){
