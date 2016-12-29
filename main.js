@@ -8,10 +8,12 @@ var info = {
     population: 0,
     birth: 0,
     death: 0,
-    anualBirth: 0,
-    anualDeath: 0,
-    groth: 0,
+    annualBirth: 0,
+    annualDeath: 0,
+    growth: 0,
     relationship: 0,
+    houses: 0,
+    annualHouses: 0,
 }
 
 var freeOffice = [];

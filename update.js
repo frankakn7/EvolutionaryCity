@@ -14,20 +14,26 @@ function infoPack(){
         "Relationships: " + info.relationship + "<br>" +
         "Births: " + info.birth + "<br>" +
         "Deaths: " + info.death + "<br>" +
-        "Anual Birth: " + info.anualBirth + "<br>" +
-        "Anual Death: " + info.anualDeath;
+        "Houses: " + info.houses + "<br> " +
+        "Annual Birth: " + info.annualBirth + "<br>" +
+        "Annual Death: " + info.annualDeath + "<br>" +
+        "Annual Houses: " + info.annualHouses;
     return pack;
 }
+var beforeBirth = 0; 
+var beforeDeath = 0; 
 
-var beforeBirth = 0;
-var beforeDeath = 0;
+var houseCalc = 0;
 
 function anualInfo() {
-    info.anualBirth = info.birth - beforeBirth;
-    beforeBirth = info.birth;
-
-    info.anualDeath = info.death - beforeDeath;
-    beforeDeath = info.death;
+    info.annualBirth = info.birth - beforeBirth; 
+    beforeBirth = info.birth; 
+ 
+    info.annualDeath = info.death - beforeDeath; 
+    beforeDeath = info.death; 
+    
+    info.annualHouses = houseCalc;
+    houseCalc = 0;
 }
 
 function updateInfo() {
@@ -35,7 +41,8 @@ function updateInfo() {
     info.population = living.length;
     //info.anualBirth = 0;
     //info.anualDeath = 0;
-    info.groth = 0;
+    info.growth = 0;
+    info.houses = houses.length;
 
     document.getElementById("info").innerHTML = infoPack();
 }
@@ -82,6 +89,7 @@ function newMonth() {
 	
 	if(freeResidence.length === 0){
 		buildResidence(10,20000,Math.round(Math.random()*500),Math.round(Math.random()*500),50);
+		houseCalc ++;
 	}
 	
 	if(month < 12){

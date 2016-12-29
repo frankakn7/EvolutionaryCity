@@ -91,7 +91,7 @@ function person(id,age,income,job,gender,interests,education,
 				}
 				
 				foundCompany(this.id,type);
-				console.log(this.id+" Founded a "+type+" Company");
+				//console.log(this.id+" Founded a "+type+" Company");
 				//this.companyChance *= 0.5;
 			}
 		}
