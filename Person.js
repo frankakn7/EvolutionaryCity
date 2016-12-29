@@ -116,7 +116,7 @@ function person(id,age,income,job,gender,interests,education,
 			}
 		}else if(this.age < 18){
 			this.home = population[this.father].home;
-			houses[this.home].inhabitants.push(this.id);
+			//houses[this.home].inhabitants.push(this.id);
 		}
 	}
 	
