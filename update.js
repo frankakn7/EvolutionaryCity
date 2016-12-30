@@ -95,8 +95,10 @@ function newMonth() {
 	evaluateDemand();
 	
 	for(var i = 0; i < homeless; i += 50){
-		buildResidence(10,20000,Math.round(Math.random()*500),Math.round(Math.random()*500),50);
-		houseCalc ++;
+		if(freeResidence.length === 0){
+			buildResidence(10,20000,Math.round(Math.random()*500),Math.round(Math.random()*500),50);
+			houseCalc ++;
+		}
 	}
 	
 	if(month < 12){
