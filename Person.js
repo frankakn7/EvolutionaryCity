@@ -30,7 +30,7 @@ function person(id,age,income,job,gender,interests,education,
 	this.deathChance = 0.0001;
 	this.companyChance = 0.0005;
 	
-	this.babyChance = 0.05;
+	this.babyChance = 0.01;
 	this.relationshipChance = 0.1;
 	
 	//this.inheritance = inheritance;
