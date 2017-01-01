@@ -1,14 +1,16 @@
 var houses = [];
 var houseCount = 0;
 
-function building(id, size, price, x, y) {
+function building(id, size, price, x, y,color) {
     this.id = id;
     this.size = size;
     this.price = price;
     this.x = x;
     this.y = y;
+    this.color = color;
 
     this.draw = function () {
+	    context.fillStyle = this.color;
         context.clearRect(this.x, this.y, this.size, this.size);
         context.fillRect(this.x, this.y, this.size, this.size);
     }
@@ -23,6 +25,7 @@ function residence(id, size, price, x, y, appartements) {
     this.type = 'Residence';
     this.inhabitants = [];
     this.appartements = appartements;
+    this.color = '#008000';				// Greenish
 
     this.isFree = function () {
         if(this.inhabitants.length >= this.appartements) {
@@ -51,6 +54,7 @@ function office(id, size, price, x, y, workspaces, company) {
     this.workspaces = workspaces;
     this.company = company;
     this.workers = [];
+    this.color = '#a6a6a6';		//grayish
 }
 office.prototype = new building();
 
@@ -65,6 +69,7 @@ function shop(id, size, price, x, y, workspaces, company, productType, maxProduc
     this.productPrice = productPrice;
     this.customerPerWorker = customerPerWorker;
     this.workers = [];
+    this.color = '#0099ff';			// blueish
 }
 shop.prototype = new building();
 
@@ -77,6 +82,7 @@ function factory(id, size, price, x, y, workspaces, company, productType, produc
     this.productionRate = productionRate; 		// per month
     this.customers = [];					// which shops
     this.workers = [];
+    this.color = '#ff9900';		//sort of orange
 }
 factory.prototype = new building();
 
