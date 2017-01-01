@@ -96,7 +96,7 @@ function newMonth() {
 	
 	for(var i = 0; i < homeless; i += 50){
 		if(freeResidence.length === 0){
-			buildResidence(10,20000,Math.round(Math.random()*500),Math.round(Math.random()*500),50);
+			state.construct.residence();
 			houseCalc ++;
 		}
 	}

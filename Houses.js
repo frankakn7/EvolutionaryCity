@@ -1,12 +1,13 @@
 var houses = [];
 var houseCount = 0;
 
-function building(id, size, price, x, y,color) {
+function building(id, size, price, x, y,company,color) {
     this.id = id;
     this.size = size;
     this.price = price;
     this.x = x;
     this.y = y;
+    this.company = company;
     this.color = color;
 
     this.draw = function () {
@@ -21,7 +22,7 @@ function building(id, size, price, x, y,color) {
 
 }
 
-function residence(id, size, price, x, y, appartements) {
+function residence(id, size, price, x, y, appartements,company) {
     this.type = 'Residence';
     this.inhabitants = [];
     this.appartements = appartements;
@@ -52,7 +53,6 @@ residence.prototype = new building();
 function office(id, size, price, x, y, workspaces, company) {
     this.type = 'Office';
     this.workspaces = workspaces;
-    this.company = company;
     this.workers = [];
     this.color = '#a6a6a6';		//grayish
 }
@@ -61,7 +61,6 @@ office.prototype = new building();
 function shop(id, size, price, x, y, workspaces, company, productType, maxProducts, productPrice, customerPerWorker) {
     this.type = 'Shop';
     this.workspaces = workspaces;
-    this.company = company;
     this.productType = productType;
     this.maxProducts = maxProducts;
     this.productNum = 0;
@@ -76,7 +75,6 @@ shop.prototype = new building();
 function factory(id, size, price, x, y, workspaces, company, productType, productionPerWorker, productionRate) {
     this.type = 'Factory';
     this.workspaces = workspaces;
-    this.company = company;
     this.productType = productType;
     this.productionPerWorker = productionPerWorker;
     this.productionRate = productionRate; 		// per month
