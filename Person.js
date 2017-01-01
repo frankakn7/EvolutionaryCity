@@ -172,7 +172,7 @@ function person(id,age,income,job,gender,interests,education,
 	
 	this.getRelationship = function(){
 		//Add Workplace search
-	    if (this.age >= 18 && !(this.relationship) && this.home) {
+	    if (this.age >= 18 && this.relationship != false && this.home != false) {
                 var partner = this.evaluateRelationshipPartner();
                 if(Math.random() < this.relationshipChance){
 	                if(partner.gender != this.gender && partner.relationship === false && partner.age >= 18){

@@ -75,7 +75,7 @@ function newMonth() {
 	for(var i in living){
 		var id = living[i];
 		
-		if(population[id].home){
+		if(population[id].home != false){
 			homeless --;
 		}
 		
