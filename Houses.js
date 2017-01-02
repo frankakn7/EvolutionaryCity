@@ -157,7 +157,3 @@ function buildFactory(size, price, x, y, workspaces, company, product) {
 
     houseCount++;
 }
-
-buildResidence(10,20000,100,100,50);
-buildResidence(10,20000,170,170,50);
-buildFactory(10,20000,340,340,50,0,'none');

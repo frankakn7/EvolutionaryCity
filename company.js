@@ -25,15 +25,18 @@ function Company(id, ceo, hq,type) {
 */
 	this.getOffice = function(){
 		if(freeOffice.length === 0){
-			return;
+			state.construct.office();
+			this.getOffice();
 		}else{
 			var office = freeOffice[0];
 			if(this.capital >= houses[office].price){
 				removeFreeOffice();
+				if(this.ownedBuildings.length === 0){
+					this.hq = office;
+				}
 				this.ownedBuildings.push(office);
 				houses[office].company = this.id;
-				this.capital -= houses[office].price;
-				state.capital += houses[office].price;
+				payment(this,state,houses[office].price);
 				return office;
 			}else{
 				return;
@@ -89,12 +92,9 @@ function foundCompany(ceo,type){
 	companys[companyCount] = new Company();
 	companys[companyCount].id = companyCount;
 	companys[companyCount].ceo = ceo;
-	companys[companyCount].hq = companys[companyCount].getOffice();
 	companys[companyCount].type = type;
+	
+	companys[companyCount].getOffice()
 	
 	companyCount ++;
 }
-
-
-buildOffice(10,3000,250,200,4,0);
-//houses[2].company = companys[1].name;
