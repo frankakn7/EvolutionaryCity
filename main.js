@@ -46,18 +46,3 @@ function removeFreeResidence(id) {
 	var index = freeResidence.indexOf(id);
 	freeResidence.splice(index, 1);
 }
-
-function RelationshipStatusInHouse(){
-	for(var i in houses){
-		var males = 0;
-		var females = 0;
-		for(var j in houses[i].inhabitants){
-			if(population[j].gender === 'Male'){
-				males ++;
-			}else{
-				females ++;
-			}
-		}
-		console.log("House: "+i+" Males: "+males+" Females: "+females);
-	}
-}
