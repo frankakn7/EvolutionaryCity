@@ -26,7 +26,7 @@ function person(id,age,income,job,gender,interests,education,
 	this.home = home;
 	this.father = father;
 	this.mother = mother;
-	this.money = 0;
+	this.capital = 0;
 	this.deathChance = 0.0001;
 	this.companyChance = 0.0005;
 	

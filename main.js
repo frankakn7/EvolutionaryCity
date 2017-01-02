@@ -46,3 +46,8 @@ function removeFreeResidence(id) {
 	var index = freeResidence.indexOf(id);
 	freeResidence.splice(index, 1);
 }
+
+function payment(payer,reciever,amount){
+	payer.capital -= amount;
+	reciever.capital += amount;
+}
