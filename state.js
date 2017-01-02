@@ -4,7 +4,7 @@ var state = {
 	
 	construct: {
 		office: function(){
-			console.log("office");
+			buildOffice(10, 20000, Math.round(Math.random()*500), Math.round(Math.random()*500), 20, 'state');
 		},
 		residence: function(){
 			buildResidence(10,20000,Math.round(Math.random()*500),Math.round(Math.random()*500),50,'state');
