@@ -47,6 +47,20 @@ function Company(id, ceo, hq, type, employees, ownedBuildings) {
 		}
 	}
 	
+	this.getBuilding = function(type){
+		if(window["free" + type].length === 0){
+			return;
+		}else{
+			var building = window["free" + type][0]
+			if(this.capital >= houses[building].price){
+				window["removeFree" + type]();
+				this.ownedBuildings.push(building);
+				houses[building].company = this.id;
+				return building;
+			}
+		}
+	}
+	
 	this.getCustomers = function(){
 		for(var i in this.ownedBuildings){
 			var id = this.ownedBuildings[i];
@@ -57,10 +71,13 @@ function Company(id, ceo, hq, type, employees, ownedBuildings) {
 	}
 }
 
+//!Constructors
+
 function Production(id, ceo, hq, type){
     this.employees = [];
     this.ownedBuildings = [];
 	
+/*
 	this.getFactory = function(){
 		if(freeFactory.length === 0){
 			return;
@@ -75,6 +92,7 @@ function Production(id, ceo, hq, type){
 			}
 		}
 	}
+*/
 }
 Production.prototype = new Company();
 
@@ -82,6 +100,7 @@ function Selling(id, ceo, hq, type){
 	this.employees = [];
     this.ownedBuildings = [];
 	
+/*
 	this.getShop = function(){
 		if(freeShop.length === 0){
 			return;
@@ -98,6 +117,7 @@ function Selling(id, ceo, hq, type){
 			}
 		}
 	}
+*/
 }
 Selling.prototype = new Company();
 
@@ -105,6 +125,7 @@ function Construction(id, ceo, hq, type){
     this.employees = [];
     this.ownedBuildings = [];
     
+/*
     this.getWarehouse = function(){
 	    if(freeWarehouse.length === 0){
 		    return;
@@ -121,8 +142,11 @@ function Construction(id, ceo, hq, type){
 		    }
 	    }
     }
+*/
 }
 Construction.prototype = new Company();
+
+//! Found Functions
 
 function foundProductionCompany(ceo){
 	companys[companyCount] = new Production();
