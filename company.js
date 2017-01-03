@@ -16,15 +16,6 @@ function Company(id, ceo, hq, type, employees, ownedBuildings) {
     this.employees = employees;
     this.ownedBuildings = ownedBuildings;
 
-
-/*
-    this.payment = function(){
-        this.capital += this.income;
-        for (var i in this.employees) {
-            population[this.employees[i]].money += this.sallary;
-        }
-    }
-*/
 	this.getOffice = function(){
 		if(free.Office.length === 0){
 			state.construct.office();
@@ -75,22 +66,6 @@ function Production(id, ceo, hq, type){
     this.employees = [];
     this.ownedBuildings = [];
 	
-/*
-	this.getFactory = function(){
-		if(freeFactory.length === 0){
-			return;
-		}else{
-			var factory = freeFactory[0];
-			if(this.capital >= houses[factory].price){
-				removeFreeFactory();
-				this.ownedBuildings.push(factory);
-				houses[factory].company = this.id;
-				//payment(this,state,houses[factory].price);
-				return factory;
-			}
-		}
-	}
-*/
 }
 Production.prototype = new Company();
 
@@ -98,24 +73,6 @@ function Selling(id, ceo, hq, type){
 	this.employees = [];
     this.ownedBuildings = [];
 	
-/*
-	this.getShop = function(){
-		if(freeShop.length === 0){
-			return;
-		}else{
-			var shop = freeShop[0];
-			if(this.capital >= houses[shop].price){
-				removeFreeShop();
-				this.ownedBuildings.push(shop);
-				houses[shop].company = this.id;
-				//payment(this,state,houses[shop].price);
-				return shop;
-			}else{
-				return;
-			}
-		}
-	}
-*/
 }
 Selling.prototype = new Company();
 
@@ -123,24 +80,6 @@ function Construction(id, ceo, hq, type){
     this.employees = [];
     this.ownedBuildings = [];
     
-/*
-    this.getWarehouse = function(){
-	    if(freeWarehouse.length === 0){
-		    return;
-	    }else{
-		    var warehouse = freeWarehouse[0];
-		    if(this.capital >= houses[shop].price){
-			    removeFreeWarehouse();
-			    this.ownedBuildings.push(warehouse);
-			    houses[warehouse].company = this.id;
-			    //payment(this,state,houses[warehouse].price);
-			    return warehouse;
-		    }else{
-			    return;
-		    }
-	    }
-    }
-*/
 }
 Construction.prototype = new Company();
 

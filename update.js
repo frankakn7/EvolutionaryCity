@@ -41,8 +41,6 @@ function anualInfo() {
 function updateInfo() {
     info.year = year;
     info.population = living.length;
-    //info.anualBirth = 0;
-    //info.anualDeath = 0;
     info.growth = 0;
     info.houses = houses.length;
 

@@ -42,29 +42,6 @@ var demand = {
 var month = 1;
 var year = 1;
 
-/*
-function removeFreeOffice(){
-	freeOffice.splice(0, 1);
-}
-
-function removeFreeShop() {
-    freeShop.splice(0, 1);
-}
-
-function removeFreeFactory() {
-    freeFactory.splice(0, 1);
-}
-
-function removeFreeResidence(id) {
-	var index = freeResidence.indexOf(id);
-	freeResidence.splice(index, 1);
-}
-
-function removeFreeWarehouse(){
-	freeWarehouse.splice(0,1);
-}
-*/
-
 function payment(payer,reciever,amount){
 	payer.capital -= amount;
 	reciever.capital += amount;
