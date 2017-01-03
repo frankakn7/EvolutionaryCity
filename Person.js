@@ -68,31 +68,29 @@ function person(id,age,income,job,gender,interests,education,
 				for(var i in this.interests){
 					if(this.interests[i] === 'physiks' || this.interests[i] === 'art'){
 						if(Math.random() > demand.construction){
-							type = 'construction';
+							foundConstructionCompany(this.id)
 							break;
 						}else{
 							return;
 						}
 					}else if(this.interests[i] === 'math' || this.interests[i] === 'psychology'){
 						if(Math.random() > demand.selling){
-							type = 'selling';
+							foundSellingCompany(this.id)
 							break;
 						}else{
 							return;
 						}
 					}else if(this.interests[i] === 'IT' || this.interests[i] === 'chemistry'){
 						if(Math.random() > demand.production){
-							type = 'production';
+							foundProductionCompany(this.id);
 							break;
 						}else{
 							return;
 						}
 					}
 				}
-				
-				foundCompany(this.id,type);
 				//console.log(this.id+" Founded a "+type+" Company");
-				//this.companyChance *= 0.5;
+				this.companyChance *= 0.5;
 			}
 		}
 		return;	
