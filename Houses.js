@@ -1,7 +1,7 @@
 var houses = [];
 var houseCount = 0;
 
-function building(id, size, price, x, y,company,color) {
+function building(id, size, price, x, y, workspaces, company, color) {
     this.id = id;
     this.size = size;
     this.price = price;
@@ -9,6 +9,7 @@ function building(id, size, price, x, y,company,color) {
     this.y = y;
     this.company = company;
     this.color = color;
+    this.workspaces = workspaces;
 
     this.draw = function () {
 	    context.fillStyle = this.color;
@@ -52,7 +53,6 @@ residence.prototype = new building();
 
 function office(id, size, price, x, y, workspaces, company) {
     this.type = 'Office';
-    this.workspaces = workspaces;
     this.workers = [];
     this.color = '#a6a6a6';		//grayish
 }
@@ -60,7 +60,6 @@ office.prototype = new building();
 
 function shop(id, size, price, x, y, workspaces, company, productType, maxProducts, productPrice, customerPerWorker) {
     this.type = 'Shop';
-    this.workspaces = workspaces;
     this.productType = productType;
     this.maxProducts = maxProducts;
     this.productNum = 0;
@@ -74,7 +73,6 @@ shop.prototype = new building();
 
 function factory(id, size, price, x, y, workspaces, company, productType, productionPerWorker, productionRate) {
     this.type = 'Factory';
-    this.workspaces = workspaces;
     this.productType = productType;
     this.productionPerWorker = productionPerWorker;
     this.productionRate = productionRate; 		// per month
@@ -83,6 +81,14 @@ function factory(id, size, price, x, y, workspaces, company, productType, produc
     this.color = '#ff9900';		//sort of orange
 }
 factory.prototype = new building();
+
+function warehouse(id, size, price, x, y, workspaces, company, storageSpace){
+	this.type = 'Warehouse';
+	this.storageSpace = storageSpace;
+	this.itemsStored = 0;
+	this.color = '#563509'; 	// Brownish
+}
+warehouse.prototype = new building();
 
 // !Build Functions
 
@@ -149,6 +155,25 @@ function buildFactory(size, price, x, y, workspaces, company, product) {
     houses[houseCount].workspaces = workspaces;
     houses[houseCount].company = company;
     houses[houseCount].productType = product;
+    houses[houseCount].productionRate = 0;
+
+    houses[houseCount].free();
+
+    needUpdate = true;
+
+    houseCount++;
+}
+
+function buildWarehouse(size, price, x, y, workspaces, company, storageSpace) {
+    houses[houseCount] = new warehouse();
+    houses[houseCount].id = houseCount;
+    houses[houseCount].size = size;
+    houses[houseCount].price = price;								//of the building itself
+    houses[houseCount].x = x;
+    houses[houseCount].y = y;
+    houses[houseCount].workspaces = workspaces;
+    houses[houseCount].company = company;
+    houses[houseCount].storageSpace = storageSpace;
     houses[houseCount].productionRate = 0;
 
     houses[houseCount].free();

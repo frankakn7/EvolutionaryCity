@@ -20,6 +20,7 @@ var freeOffice = [];
 var freeShop = [];
 var freeFactory = [];
 var freeResidence = [];
+var freeWarehouse = [];
 
 var demand = {
 	construction: 0,
