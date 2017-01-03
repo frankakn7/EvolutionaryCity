@@ -1,19 +1,21 @@
 var companys = [];
 var companyCount = 0;
 
-function Company(id, ceo, hq, type) {
+function Company(id, ceo, hq, type, income, capital, sallery, monthlyCustomers, employees, ownedBuildings) {
 	var that = this;
     this.id = id;
     this.ceo = ceo;
     this.hq =  hq;
     this.type = type;
-    this.income = 0;
-    this.capital = 20000;
-    this.sallary = 0;
-    this.monthlyCustomers = 0;
+/*
+    this.income = income;
+    this.capital = capital;
+    this.sallary = sallery;
+    this.monthlyCustomers = monthlyCustomers;
 
-    this.employees = [];
-    this.ownedBuildings = [];
+    this.employees = employees;
+    this.ownedBuildings = ownedBuildings;
+*/
 
 /*
     this.payment = function(){
@@ -27,18 +29,18 @@ function Company(id, ceo, hq, type) {
 		if(freeOffice.length === 0){
 			state.construct.office();
 			this.getOffice();
+			return;
 		}else{
 			var office = freeOffice[0];
 			if(this.capital >= houses[office].price){
 				removeFreeOffice();
-				if(this.ownedBuildings.length === 0){
+				if(this.hq === undefined){
 					this.hq = office;
+					console.log(this.id);
 				}
 				this.ownedBuildings.push(office);
 				houses[office].company = this.id;
 				payment(this,state,houses[office].price);
-				return office;
-			}else{
 				return;
 			}
 		}
@@ -54,7 +56,15 @@ function Company(id, ceo, hq, type) {
 	}
 }
 
-function Production(id, ceo, hq){
+function Production(id, ceo, hq, type){
+	this.income = 0;
+    this.capital = 20000;
+    this.sallary = 0;
+    this.monthlyCustomers = 0;
+    
+    this.employees = [];
+    this.ownedBuildings = [];
+	
 	this.getFactory = function(){
 		if(freeFactory.length === 0){
 			return;
@@ -73,8 +83,16 @@ function Production(id, ceo, hq){
 }
 Production.prototype = new Company();
 
-function Selling(id, ceo, hq){
-	 this.getShop = function(){
+function Selling(id, ceo, hq, type){
+	this.income = 0;
+    this.capital = 20000;
+    this.sallary = 0;
+    this.monthlyCustomers = 0;
+	
+	this.employees = [];
+    this.ownedBuildings = [];
+	
+	this.getShop = function(){
 		if(freeShop.length === 0){
 			return;
 		}else{
@@ -94,8 +112,14 @@ function Selling(id, ceo, hq){
 }
 Selling.prototype = new Company();
 
-function Construction(id, ceo, hq){
-	
+function Construction(id, ceo, hq, type){
+	this.income = 0;
+    this.capital = 20000;
+    this.sallary = 0;
+    this.monthlyCustomers = 0;
+    
+    this.employees = [];
+    this.ownedBuildings = [];
 }
 Construction.prototype = new Company();
 

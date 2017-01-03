@@ -56,9 +56,9 @@ function evaluateDemand(){
 	
 	if(companys.length > 0){	
 		for(var i in companys){
-			if(companys[i].type === 'construction'){
+			if(companys[i].type === 'Construction'){
 				construct ++;
-			}else if(companys[i].type === 'selling'){
+			}else if(companys[i].type === 'Selling'){
 				sell ++;
 			}else{
 				produce ++;
