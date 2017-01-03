@@ -16,11 +16,22 @@ var info = {
     annualHouses: 0,
 }
 
-var freeOffice = [];
-var freeShop = [];
-var freeFactory = [];
-var freeResidence = [];
-var freeWarehouse = [];
+var free = {
+	Office: [],
+	Shop: [],
+	Factory: [],
+	Residence: [],
+	Warehouse: [],
+	
+	removeBuilding: function(type,id){
+		if(id){
+			var index = free[type].indexOf(id);
+			free[type].splice(index, 1);
+			return;
+		}
+		free[type].splice(0,1);
+	},
+}
 
 var demand = {
 	construction: 0,
@@ -31,6 +42,7 @@ var demand = {
 var month = 1;
 var year = 1;
 
+/*
 function removeFreeOffice(){
 	freeOffice.splice(0, 1);
 }
@@ -51,6 +63,7 @@ function removeFreeResidence(id) {
 function removeFreeWarehouse(){
 	freeWarehouse.splice(0,1);
 }
+*/
 
 function payment(payer,reciever,amount){
 	payer.capital -= amount;

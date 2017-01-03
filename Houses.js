@@ -18,7 +18,7 @@ function building(id, size, price, x, y, workspaces, company, color) {
     }
 
     this.free = function () {
-        window["free" + this.type].push(this.id);
+    	free[this.type].push(this.id);
     }
 
 }
@@ -31,20 +31,20 @@ function residence(id, size, price, x, y, appartements,company) {
 
     this.isFree = function () {
         if(this.inhabitants.length >= this.appartements) {
-	        for(var i in freeResidence){
-		        if(freeResidence[i] === this.id){
-		            removeFreeResidence(this.id);
+	        for(var i in free.Residence){
+		        if(free.Residence[i] === this.id){
+		            free.removeBuilding('Residence',this.id);
 					//console.warn("Removed: "+this.id);
 				}
 			}
             return false;
         }else{
-	        for(var i in freeResidence){
-		        if(freeResidence[i] === this.id){
+	        for(var i in free.Residence){
+		        if(free.Residence[i] === this.id){
 			        return true;
 		        }
 	        }
-	        freeResidence.push(this.id);
+	        free.Residence.push(this.id);
 	        //console.warn("Added: "+this.id);
         }
     }

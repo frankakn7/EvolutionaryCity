@@ -98,10 +98,10 @@ function person(id,age,income,job,gender,interests,education,
 	
 	this.findHome = function(){
 		if(!(this.home) && this.age >= 18){
-			if(freeResidence.length === 0){
+			if(free.Residence.length === 0){
 				return;
 			}else{
-				var residence = freeResidence[0];
+				var residence = free.Residence[0];
 				//if(this.capital >= houses[residence].price){
 					if(houses[residence].isFree()){
 						houses[residence].inhabitants.push(this.id);

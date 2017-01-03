@@ -95,7 +95,7 @@ function newMonth() {
 	evaluateDemand();
 	
 	for(var i = 0; i < homeless; i += 50){
-		if(freeResidence.length === 0){
+		if(free.Residence.length === 0){
 			state.construct.residence();
 			houseCalc ++;
 		}

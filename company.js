@@ -26,18 +26,16 @@ function Company(id, ceo, hq, type, employees, ownedBuildings) {
     }
 */
 	this.getOffice = function(){
-		if(freeOffice.length === 0){
+		if(free.Office.length === 0){
 			state.construct.office();
-			console.log(this.capital);
 			this.getOffice();
 			return;
 		}else{
-			var office = freeOffice[0];
+			var office = free.Office[0];
 			if(this.capital >= houses[office].price){
-				removeFreeOffice();
+				free.removeBuilding('Office');
 				if(this.hq === undefined){
 					this.hq = office;
-					console.log(this.id);
 				}
 				this.ownedBuildings.push(office);
 				houses[office].company = this.id;
@@ -51,7 +49,7 @@ function Company(id, ceo, hq, type, employees, ownedBuildings) {
 		if(window["free" + type].length === 0){
 			return;
 		}else{
-			var building = window["free" + type][0]
+			var building = free[type][0]
 			if(this.capital >= houses[building].price){
 				window["removeFree" + type]();
 				this.ownedBuildings.push(building);
