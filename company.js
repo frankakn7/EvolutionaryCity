@@ -70,8 +70,7 @@ function Production(id, ceo, hq, type){
 				removeFreeFactory();
 				this.ownedBuildings.push(factory);
 				houses[factory].company = this.id;
-				this.capital -= houses[factory].price;
-				state.capital += houses[factory].price;
+				//payment(this,state,houses[factory].price);
 				return factory;
 			}
 		}
@@ -92,8 +91,7 @@ function Selling(id, ceo, hq, type){
 				removeFreeShop();
 				this.ownedBuildings.push(shop);
 				houses[shop].company = this.id;
-				this.capital -= houses[shop].price;
-				state.capital += houses[shop].price;
+				//payment(this,state,houses[shop].price);
 				return shop;
 			}else{
 				return;
@@ -106,6 +104,23 @@ Selling.prototype = new Company();
 function Construction(id, ceo, hq, type){    
     this.employees = [];
     this.ownedBuildings = [];
+    
+    this.getWarehouse = function(){
+	    if(freeWarehouse.length === 0){
+		    return;
+	    }else{
+		    var warehouse = freeWarehouse[0];
+		    if(this.capital >= houses[shop].price){
+			    removeFreeWarehouse();
+			    this.ownedBuildings.push(warehouse);
+			    houses[warehouse].company = this.id;
+			    //payment(this,state,houses[warehouse].price);
+			    return warehouse;
+		    }else{
+			    return;
+		    }
+	    }
+    }
 }
 Construction.prototype = new Company();
 

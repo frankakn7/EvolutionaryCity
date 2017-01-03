@@ -48,6 +48,10 @@ function removeFreeResidence(id) {
 	freeResidence.splice(index, 1);
 }
 
+function removeFreeWarehouse(){
+	freeWarehouse.splice(0,1);
+}
+
 function payment(payer,reciever,amount){
 	payer.capital -= amount;
 	reciever.capital += amount;
